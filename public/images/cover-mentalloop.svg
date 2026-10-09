@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1414" height="2000" viewBox="0 0 1414 2000">
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#26211F" />
+      <stop offset="100%" stop-color="#181514" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1414" height="2000" fill="url(#grad)" />
+
+  <!-- Outer Luxe Border -->
+  <rect x="50" y="50" width="1314" height="1900" rx="24" fill="none" stroke="#E2B072" stroke-width="3" stroke-opacity="0.5" />
+  <rect x="66" y="66" width="1282" height="1868" rx="18" fill="none" stroke="#E2B072" stroke-width="1.5" stroke-opacity="0.3" />
+
+  <!-- Top Header -->
+  <text x="707" y="200" text-anchor="middle" font-family="Georgia, serif" font-size="28" letter-spacing="8" font-weight="bold" fill="#E2B072">
+    HERHORIZON • PILLAR 03
+  </text>
+  <text x="707" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" letter-spacing="6" font-weight="600" fill="#E2B072">
+    THE 3 A.M. PROTOCOL
+  </text>
+
+  <!-- Center Emblem (Geometric Diamond) -->
+  <g transform="translate(707, 600)">
+    <circle r="70" fill="none" stroke="#E2B072" stroke-width="2" stroke-opacity="0.6" />
+    <polygon points="0,-48 48,0 0,48 -48,0" fill="none" stroke="#E2B072" stroke-width="3" />
+    <circle r="12" fill="#E2B072" />
+    <line x1="-120" y1="0" x2="-80" y2="0" stroke="#E2B072" stroke-width="2" stroke-opacity="0.6" />
+    <line x1="80" y1="0" x2="120" y2="0" stroke="#E2B072" stroke-width="2" stroke-opacity="0.6" />
+  </g>
+
+  <!-- Title -->
+  <text x="707" y="920" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="76" font-weight="normal" fill="#F5EDE4">
+    “Mental Loop
+  </text>
+  <text x="707" y="1030" text-anchor="middle" font-family="Georgia, serif" font-size="82" font-weight="bold" fill="#E2B072">
+    Release Journal”
+  </text>
+
+  <!-- Divider -->
+  <line x1="547" y1="1130" x2="867" y2="1130" stroke="#E2B072" stroke-width="2" stroke-opacity="0.5" />
+
+  <!-- Subtitle -->
+  <text x="707" y="1220" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="400" fill="#C4B5A5">
+    Interrupt. Ground. Re-anchor.
+  </text>
+
+  <!-- Bottom Badge -->
+  <g transform="translate(707, 1620)">
+    <rect x="-260" y="-36" width="520" height="72" rx="36" fill="#2E2724" stroke="#E2B072" stroke-width="2" stroke-opacity="0.5" />
+    <text x="0" y="9" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#E2B072">
+      20 Pages • 10 Interrupt Prompts
+    </text>
+  </g>
+
+  <!-- Footer Imprint -->
+  <text x="707" y="1840" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" letter-spacing="4" fill="#C4B5A5">
+    Emergency Anchor Vault
+  </text>
+</svg>

@@ -1,0 +1,8 @@
+{
+  "name": "HerHorizon | The Identity Rebuild System™",
+  "description": "Luxe-Zen digital landing page \u0026 lead capture for HerHorizon\u0027s 72-Hour Reset and Identity Rebuild System, with admin subscriber management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

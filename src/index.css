@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: #2D2A26;
+    background-color: #FAF9F6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  button, a {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  h1, h2, h3, h4, .font-serif-heading {
+    font-family: var(--font-serif);
+    letter-spacing: -0.015em;
+  }
+}
+
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-sans {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-display {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Luxe-Zen Soft Shadows & Micro-interactions */
+.shadow-luxe {
+  box-shadow: 0 10px 30px -10px rgba(78, 64, 53, 0.08), 0 4px 12px -4px rgba(78, 64, 53, 0.04);
+}
+
+.shadow-luxe-lg {
+  box-shadow: 0 25px 50px -12px rgba(78, 64, 53, 0.12), 0 10px 20px -8px rgba(78, 64, 53, 0.06);
+}
+
+.shadow-luxe-inner {
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.04);
+}
+
+/* Canva Extracted Color & Typography Tokens */
+.text-canva-gold {
+  color: #D4A373;
+}
+
+.text-canva-rose {
+  color: #BD7469;
+}
+
+.bg-canva-gold {
+  background-color: #E2B072;
+}
+
+.bg-canva-rose {
+  background-color: #BD7469;
+}
+
+.border-canva-rose {
+  border-color: #BD7469;
+}
+
+.border-canva-gold {
+  border-color: #E2B072;
+}
+
+.font-canva-heading {
+  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  letter-spacing: -0.015em;
+}
+
+.bg-cream-sand {
+  background: radial-gradient(circle at 10% 20%, #FAF8F5 0%, #F5F1EB 90%);
+}
+
+.bg-peach-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(227, 168, 141, 0.18) 0%, rgba(250, 249, 246, 0.95) 70%);
+}
+
+.bg-sage-mist {
+  background: linear-gradient(180deg, #EDF1EC 0%, #E2E8E1 100%);
+}
+
+.bg-terracotta-warm {
+  background: linear-gradient(145deg, #C05746 0%, #B14B3A 100%);
+}
+

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1414" height="2000" viewBox="0 0 1414 2000">
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FAF7F2" />
+      <stop offset="100%" stop-color="#EFE4D6" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1414" height="2000" fill="url(#grad)" />
+
+  <!-- Outer Luxe Border -->
+  <rect x="50" y="50" width="1314" height="1900" rx="24" fill="none" stroke="#D4A373" stroke-width="3" stroke-opacity="0.5" />
+  <rect x="66" y="66" width="1282" height="1868" rx="18" fill="none" stroke="#D4A373" stroke-width="1.5" stroke-opacity="0.3" />
+
+  <!-- Top Header -->
+  <text x="707" y="200" text-anchor="middle" font-family="Georgia, serif" font-size="28" letter-spacing="8" font-weight="bold" fill="#D4A373">
+    HERHORIZON • BONUS MODULE 03
+  </text>
+  <text x="707" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" letter-spacing="6" font-weight="600" fill="#D4A373">
+    WEEKEND HOMECOMING RITUALS
+  </text>
+
+  <!-- Center Emblem (Geometric Diamond) -->
+  <g transform="translate(707, 600)">
+    <circle r="70" fill="none" stroke="#D4A373" stroke-width="2" stroke-opacity="0.6" />
+    <polygon points="0,-48 48,0 0,48 -48,0" fill="none" stroke="#D4A373" stroke-width="3" />
+    <circle r="12" fill="#D4A373" />
+    <line x1="-120" y1="0" x2="-80" y2="0" stroke="#D4A373" stroke-width="2" stroke-opacity="0.6" />
+    <line x1="80" y1="0" x2="120" y2="0" stroke="#D4A373" stroke-width="2" stroke-opacity="0.6" />
+  </g>
+
+  <!-- Title -->
+  <text x="707" y="920" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="76" font-weight="normal" fill="#332A22">
+    “Solo Saturday
+  </text>
+  <text x="707" y="1030" text-anchor="middle" font-family="Georgia, serif" font-size="82" font-weight="bold" fill="#D4A373">
+    Joy Bank”
+  </text>
+
+  <!-- Divider -->
+  <line x1="547" y1="1130" x2="867" y2="1130" stroke="#D4A373" stroke-width="2" stroke-opacity="0.5" />
+
+  <!-- Subtitle -->
+  <text x="707" y="1220" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="400" fill="#786C60">
+    50 Non-Alcoholic Ways to Date Yourself on Quiet Days
+  </text>
+
+  <!-- Bottom Badge -->
+  <g transform="translate(707, 1620)">
+    <rect x="-260" y="-36" width="520" height="72" rx="36" fill="#FFFFFF" stroke="#D4A373" stroke-width="2" stroke-opacity="0.5" />
+    <text x="0" y="9" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#D4A373">
+      22 Pages • 50 Solo Dates
+    </text>
+  </g>
+
+  <!-- Footer Imprint -->
+  <text x="707" y="1840" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" letter-spacing="4" fill="#786C60">
+    Joy Restoration Guide
+  </text>
+</svg>
