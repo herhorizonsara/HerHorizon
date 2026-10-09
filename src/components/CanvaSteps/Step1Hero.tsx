@@ -188,12 +188,12 @@ export const Step1Hero: React.FC<Step1HeroProps> = ({
           <div className="flex items-center space-x-1">
             <span className="text-[#E2B072] text-sm">★★★★★</span>
             <span className="font-medium text-[#2D2A26]">4.9/5 Rating</span>
-            <span className="text-[#8C7A74]">(3,400+ Women)</span>
+            <span className="text-[#8C7A74]">(48 Women Reclaimed)</span>
           </div>
           <span className="text-[#D4C5BC] hidden sm:inline">•</span>
           <div className="flex items-center space-x-1">
             <ShieldCheck className="w-3.5 h-3.5 text-[#4A7C59]" />
-            <span>30-Day 100% Peace Guarantee</span>
+            <span>7-Day 100% Peace of Mind Guarantee</span>
           </div>
           <span className="text-[#D4C5BC] hidden sm:inline">•</span>
           <div className="flex items-center space-x-1">
@@ -225,53 +225,65 @@ export const Step1Hero: React.FC<Step1HeroProps> = ({
               
               {/* Tablet 1 (Far Left): Boundary Scripts */}
               <div className="w-[18%] max-w-[130px] sm:max-w-[155px] aspect-[3535/5000] rounded-lg sm:rounded-xl overflow-hidden bg-white p-1 border border-[#DECAC0] shadow-md -rotate-12 translate-y-3 z-0 hover:z-30 hover:scale-110 hover:-translate-y-2 transition-all duration-300 group cursor-pointer" title="Boundary Scripts Library (20 Pages)">
-                <img
-                  src="/cover-boundaryscripts.png"
-                  alt="Boundary Scripts Library Cover"
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    if (!target.dataset.triedImages) {
-                      target.dataset.triedImages = 'true';
-                      target.src = '/images/cover-boundaryscripts.png';
-                    }
-                  }}
-                  className="w-full h-full object-cover rounded-md sm:rounded-lg select-none"
-                  loading="eager"
-                />
+                <picture>
+                  <source type="image/webp" srcSet="/cover-boundaryscripts.webp, /images/cover-boundaryscripts.webp" />
+                  <img
+                    src="/cover-boundaryscripts.webp"
+                    alt="Boundary Scripts Library Cover"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.dataset.triedImages) {
+                        target.dataset.triedImages = 'true';
+                        target.src = '/cover-boundaryscripts.png';
+                      }
+                    }}
+                    className="w-full h-full object-cover rounded-md sm:rounded-lg select-none"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </picture>
               </div>
 
               {/* Tablet 2 (Mid Left): Mental Loop Release */}
               <div className="w-[21%] max-w-[145px] sm:max-w-[175px] aspect-[3535/5000] rounded-lg sm:rounded-xl overflow-hidden bg-white p-1 border border-[#DECAC0] shadow-lg -rotate-6 translate-y-1 z-10 hover:z-30 hover:scale-110 hover:-translate-y-2 transition-all duration-300 group cursor-pointer" title="Mental Loop Release Journal (22 Pages)">
-                <img
-                  src="/cover-mentalloop.png"
-                  alt="Mental Loop Release Journal Cover"
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    if (!target.dataset.triedImages) {
-                      target.dataset.triedImages = 'true';
-                      target.src = '/images/cover-mentalloop.png';
-                    }
-                  }}
-                  className="w-full h-full object-cover rounded-md sm:rounded-lg select-none"
-                  loading="eager"
-                />
+                <picture>
+                  <source type="image/webp" srcSet="/cover-mentalloop.webp, /images/cover-mentalloop.webp" />
+                  <img
+                    src="/cover-mentalloop.webp"
+                    alt="Mental Loop Release Journal Cover"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.dataset.triedImages) {
+                        target.dataset.triedImages = 'true';
+                        target.src = '/cover-mentalloop.png';
+                      }
+                    }}
+                    className="w-full h-full object-cover rounded-md sm:rounded-lg select-none"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </picture>
               </div>
 
               {/* Tablet 3 (Centerpiece Hero): The Identity Rebuild Roadmap */}
               <div className="w-[27%] max-w-[180px] sm:max-w-[220px] aspect-[3535/5000] rounded-xl sm:rounded-2xl overflow-hidden bg-white p-1.5 sm:p-2 border-2 sm:border-3 border-[#E2B072] shadow-2xl z-20 hover:scale-105 transition-all duration-300 group cursor-pointer" title="The Identity Rebuild Roadmap (77 Pages)">
-                <img
-                  src="/cover-roadmap.png"
-                  alt="The Identity Rebuild Roadmap Cover"
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    if (!target.dataset.triedImages) {
-                      target.dataset.triedImages = 'true';
-                      target.src = '/images/cover-roadmap.png';
-                    }
-                  }}
-                  className="w-full h-full object-cover rounded-lg sm:rounded-xl select-none"
-                  loading="eager"
-                />
+                <picture>
+                  <source type="image/webp" srcSet="/cover-roadmap.webp, /images/cover-roadmap.webp" />
+                  <img
+                    src="/cover-roadmap.webp"
+                    alt="The Identity Rebuild Roadmap Cover"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.dataset.triedImages) {
+                        target.dataset.triedImages = 'true';
+                        target.src = '/cover-roadmap.png';
+                      }
+                    }}
+                    className="w-full h-full object-cover rounded-lg sm:rounded-xl select-none"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </picture>
                 <div className="absolute top-2 left-2 bg-[#E2B072] text-white text-[8px] sm:text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded shadow-xs">
                   Core Guide
                 </div>
@@ -279,36 +291,44 @@ export const Step1Hero: React.FC<Step1HeroProps> = ({
 
               {/* Tablet 4 (Mid Right): Self-Trust Reset */}
               <div className="w-[21%] max-w-[145px] sm:max-w-[175px] aspect-[3535/5000] rounded-lg sm:rounded-xl overflow-hidden bg-white p-1 border border-[#DECAC0] shadow-lg rotate-6 translate-y-1 z-10 hover:z-30 hover:scale-110 hover:-translate-y-2 transition-all duration-300 group cursor-pointer" title="The Self-Trust Reset Guide (25 Pages)">
-                <img
-                  src="/cover-selftrust.png"
-                  alt="The Self-Trust Reset Guide Cover"
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    if (!target.dataset.triedImages) {
-                      target.dataset.triedImages = 'true';
-                      target.src = '/images/cover-selftrust.png';
-                    }
-                  }}
-                  className="w-full h-full object-cover rounded-md sm:rounded-lg select-none"
-                  loading="eager"
-                />
+                <picture>
+                  <source type="image/webp" srcSet="/cover-selftrust.webp, /images/cover-selftrust.webp" />
+                  <img
+                    src="/cover-selftrust.webp"
+                    alt="The Self-Trust Reset Guide Cover"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.dataset.triedImages) {
+                        target.dataset.triedImages = 'true';
+                        target.src = '/cover-selftrust.png';
+                      }
+                    }}
+                    className="w-full h-full object-cover rounded-md sm:rounded-lg select-none"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </picture>
               </div>
 
               {/* Tablet 5 (Far Right): Trauma Bond Detox */}
               <div className="w-[18%] max-w-[130px] sm:max-w-[155px] aspect-[3535/5000] rounded-lg sm:rounded-xl overflow-hidden bg-white p-1 border border-[#DECAC0] shadow-md rotate-12 translate-y-3 z-0 hover:z-30 hover:scale-110 hover:-translate-y-2 transition-all duration-300 group cursor-pointer" title="Trauma Bond Detox Guide (24 Pages)">
-                <img
-                  src="/cover-traumabond.png"
-                  alt="Trauma Bond Detox Guide Cover"
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    if (!target.dataset.triedImages) {
-                      target.dataset.triedImages = 'true';
-                      target.src = '/images/cover-traumabond.png';
-                    }
-                  }}
-                  className="w-full h-full object-cover rounded-md sm:rounded-lg select-none"
-                  loading="eager"
-                />
+                <picture>
+                  <source type="image/webp" srcSet="/cover-traumabond.webp, /images/cover-traumabond.webp" />
+                  <img
+                    src="/cover-traumabond.webp"
+                    alt="Trauma Bond Detox Guide Cover"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.dataset.triedImages) {
+                        target.dataset.triedImages = 'true';
+                        target.src = '/cover-traumabond.png';
+                      }
+                    }}
+                    className="w-full h-full object-cover rounded-md sm:rounded-lg select-none"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </picture>
               </div>
 
             </div>

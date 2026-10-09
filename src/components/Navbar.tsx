@@ -85,6 +85,12 @@ export const Navbar: React.FC<NavbarProps> = () => {
             >
               Timeline
             </button>
+            <a
+              href="/free-guide"
+              className="hover:text-[#BD7469] transition-colors cursor-pointer text-[#736E67] font-medium"
+            >
+              Free Reset 🕊️
+            </a>
             <button
               onClick={() => scrollTo('step-10')}
               className="hover:text-[#BD7469] transition-colors cursor-pointer text-[#BD7469] font-bold"
@@ -154,9 +160,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
           </button>
           <div className="pt-3 pb-1 flex flex-col gap-2.5">
             <a
-              href="https://herhorizon.gumroad.com/l/72-hour-reset"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/free-guide"
               className="block w-full text-center bg-[#FAF6F2] border border-[#E8DCD5] text-[#BD7469] py-3.5 rounded-full font-medium text-xs hover:bg-[#F3EBE3] active:bg-[#EBE2DA] transition-colors min-h-[46px] flex items-center justify-center"
             >
               🕊️ Free 72-Hour Reset &amp; 2 A.M. Answer Guide

@@ -152,6 +152,35 @@ export const ImageGuideModal: React.FC<ImageGuideModalProps> = ({ isOpen, onClos
       ratio: '16:11 or 16:9',
       description: 'Optional single-image composite of the 5 tablets if you prefer one graphic instead of individual covers.',
     },
+
+    // Category 4: Complimentary Free Guide (/free-guide)
+    {
+      category: 'Free Guide Assets (/free-guide)',
+      badge: 'Part 01 (Vertical)',
+      name: 'The 72-Hour Nervous System Reset Guide',
+      filename: 'cover-free-reset-guide.png',
+      fallback: 'cover-free-reset-guide.svg, cover-free-reset-guide.jpg',
+      ratio: '3535 × 5000 px (Portrait, A4 ratio 1:1.414)',
+      description: 'Part 1 vertical PDF guide cover displayed on /free-guide page and inside reader modal.',
+    },
+    {
+      category: 'Free Guide Assets (/free-guide)',
+      badge: 'Part 02 (Horizontal)',
+      name: 'The 2 A.M. Emergency Anchor Card (Horizontal Card)',
+      filename: 'cover-free-anchor-card.png',
+      fallback: 'cover-free-anchor-card.svg, cover-free-anchor-card.jpg',
+      ratio: '1920 × 1080 px (16:9 Landscape / Horizontal)',
+      description: 'Part 2 horizontal landscape bedside anchor card for night waking loops and phone lockscreen.',
+    },
+    {
+      category: 'Free Guide Assets (/free-guide)',
+      badge: 'Dual Mockup',
+      name: 'Free Guide 2-Product Bundle Mockup (Optional)',
+      filename: 'free-guide-dual-mockup.png',
+      fallback: 'free-guide-dual-mockup.jpg',
+      ratio: '1920 × 1080 px (16:9 Landscape Composite)',
+      description: 'Optional composite mockup showing both the portrait reset guide and horizontal anchor card together.',
+    },
   ];
 
   const handleCopy = (filename: string, idx: number) => {

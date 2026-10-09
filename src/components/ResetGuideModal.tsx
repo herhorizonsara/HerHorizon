@@ -346,6 +346,25 @@ export const ResetGuideModal: React.FC<ResetGuideModalProps> = ({
                   <p className="font-sans text-sm sm:text-base text-[#BD7469] font-medium max-w-md mx-auto">
                     3 Days to Stop the Self-Betrayal + The Emergency Midnight Protocol.
                   </p>
+
+                  {/* High-Resolution Guide Cover */}
+                  <div className="max-w-[260px] sm:max-w-[300px] mx-auto aspect-[3535/5000] rounded-2xl overflow-hidden border-2 border-[#E2B072] shadow-2xl my-4 bg-white">
+                    <picture>
+                      <source type="image/webp" srcSet="/cover-free-reset-guide.webp, /images/cover-free-reset-guide.webp" />
+                      <img
+                        src="/cover-free-reset-guide.webp"
+                        alt="The 72-Hour Reset Guide Cover"
+                        className="w-full h-full object-cover"
+                        loading="eager"
+                        decoding="async"
+                        onError={(e) => {
+                          const target = e.currentTarget;
+                          target.src = '/cover-free-reset-guide.png';
+                        }}
+                      />
+                    </picture>
+                  </div>
+
                   <div className="p-4 bg-white/70 backdrop-blur-xs rounded-2xl border border-[#EDE2DA] max-w-md mx-auto">
                     <p className="font-serif italic text-xs sm:text-sm text-[#5C524F]">
                       &ldquo;You don’t need to fix your entire life today. You just need to find enough quiet to take the next breath.&rdquo;
@@ -680,6 +699,24 @@ export const ResetGuideModal: React.FC<ResetGuideModalProps> = ({
                     </p>
                   </div>
 
+                  {/* Horizontal 2 A.M. Emergency Anchor Card */}
+                  <div className="w-full aspect-[16/9] rounded-2xl overflow-hidden border-2 border-[#E2B072] shadow-2xl bg-[#241C18]">
+                    <picture>
+                      <source type="image/webp" srcSet="/cover-free-anchor-card.webp, /images/cover-free-anchor-card.webp" />
+                      <img
+                        src="/cover-free-anchor-card.webp"
+                        alt="The 2 A.M. Emergency Anchor Card (Horizontal)"
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                        onError={(e) => {
+                          const target = e.currentTarget;
+                          target.src = '/cover-free-anchor-card.png';
+                        }}
+                      />
+                    </picture>
+                  </div>
+
                   {/* 3 Midnight Rules */}
                   <div className="bg-[#FAF6F2] p-6 rounded-3xl border border-[#EDE2DA] space-y-4 shadow-sm">
                     <h4 className="font-bold text-[#3D3532] uppercase tracking-wider text-xs flex items-center space-x-2">
@@ -962,7 +999,7 @@ export const ResetGuideModal: React.FC<ResetGuideModalProps> = ({
                     YOU ARE NOT WALKING ALONE.
                   </h2>
                   <p className="text-xs sm:text-sm text-[#5C524F]">
-                    One of the loudest lies of identity collapse is that you are &ldquo;uniquely broken.&rdquo; You aren’t. There are thousands of women walking this exact stone path:
+                    One of the loudest lies of identity collapse is that you are &ldquo;uniquely broken.&rdquo; You aren’t. There are other brave women walking this exact stone path beside you:
                   </p>
 
                   <div className="space-y-3.5">

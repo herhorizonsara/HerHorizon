@@ -17,11 +17,13 @@ import { ResetGuideModal } from './components/ResetGuideModal';
 import { ImageGuideModal } from './components/ImageGuideModal';
 import { AdminDashboard } from './components/Admin/AdminDashboard';
 import { AdminLogin } from './components/Admin/AdminLogin';
+import { FreeGuidePage } from './components/FreeGuide/FreeGuidePage';
 import { isAdminAuthenticated } from './lib/storage';
 import { Sparkles, ArrowRight, ShieldCheck, Feather, Heart, Image as ImageIcon } from 'lucide-react';
 
 export default function App() {
   const [isAdminView, setIsAdminView] = useState(false);
+  const [isFreeGuideView, setIsFreeGuideView] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [resetModalOpen, setResetModalOpen] = useState(false);
   const [imageGuideOpen, setImageGuideOpen] = useState(false);
@@ -32,17 +34,22 @@ export default function App() {
   useEffect(() => {
     setIsAuthenticated(isAdminAuthenticated());
 
-    // Check if URL has /admin path
-    const checkAdminRoute = () => {
+    // Check if URL has /admin or /free-guide path
+    const checkRoute = () => {
       const path = window.location.pathname.toLowerCase();
       if (path === '/admin' || path.startsWith('/admin/')) {
         setIsAdminView(true);
+        setIsFreeGuideView(false);
+      } else if (path === '/free-guide' || path.startsWith('/free-guide/')) {
+        setIsFreeGuideView(true);
+        setIsAdminView(false);
       } else {
         setIsAdminView(false);
+        setIsFreeGuideView(false);
       }
     };
-    checkAdminRoute();
-    window.addEventListener('popstate', checkAdminRoute);
+    checkRoute();
+    window.addEventListener('popstate', checkRoute);
 
     // Sticky bar scroll listener
     const handleScroll = () => {
@@ -51,15 +58,16 @@ export default function App() {
     window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener('popstate', checkAdminRoute);
+      window.removeEventListener('popstate', checkRoute);
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   const handleBackToSite = () => {
     setIsAdminView(false);
+    setIsFreeGuideView(false);
     const path = window.location.pathname.toLowerCase();
-    if (path === '/admin' || path.startsWith('/admin/')) {
+    if (path !== '/' && path !== '') {
       window.history.pushState({}, '', '/');
     }
   };
@@ -70,6 +78,11 @@ export default function App() {
       el.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // If on /free-guide dedicated page
+  if (isFreeGuideView) {
+    return <FreeGuidePage onBackToSite={handleBackToSite} />;
+  }
 
   // If in admin mode
   if (isAdminView) {

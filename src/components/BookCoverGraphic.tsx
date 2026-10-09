@@ -87,15 +87,20 @@ export const BookCoverGraphic: React.FC<BookCoverGraphicProps> = ({
   const imgSrc = coverImages[type] || coverImages.roadmap;
 
   if (!loadError) {
+    const webpSrc = imgSrc.replace(/\.png$/i, '.webp');
     return (
       <div className={`relative w-full h-full aspect-[3535/5000] rounded-xl overflow-hidden shadow-md ${className}`}>
-        <img
-          src={imgSrc}
-          alt={info.title}
-          onError={() => setLoadError(true)}
-          className="w-full h-full object-cover select-none"
-          loading="lazy"
-        />
+        <picture>
+          <source type="image/webp" srcSet={webpSrc} />
+          <img
+            src={imgSrc}
+            alt={info.title}
+            onError={() => setLoadError(true)}
+            className="w-full h-full object-cover select-none"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
       </div>
     );
   }

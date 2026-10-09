@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1414" height="2000" viewBox="0 0 1414 2000">
+  <defs>
+    <linearGradient id="resetBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FAF7F2" />
+      <stop offset="50%" stop-color="#F5EFE7" />
+      <stop offset="100%" stop-color="#EDE2D5" />
+    </linearGradient>
+    <linearGradient id="goldAccent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F3D5A5" />
+      <stop offset="50%" stop-color="#E2B072" />
+      <stop offset="100%" stop-color="#C59B63" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1414" height="2000" fill="url(#resetBg)" />
+
+  <!-- Outer Luxe Borders -->
+  <rect x="50" y="50" width="1314" height="1900" rx="28" fill="none" stroke="#C59B63" stroke-width="3" stroke-opacity="0.5" />
+  <rect x="68" y="68" width="1278" height="1864" rx="20" fill="none" stroke="#C59B63" stroke-width="1.5" stroke-opacity="0.3" stroke-dasharray="10,6" />
+
+  <!-- Brand Eyebrow -->
+  <text x="707" y="190" text-anchor="middle" font-family="Georgia, serif" font-size="28" letter-spacing="8" font-weight="bold" fill="#BD7469">
+    HERHORIZON™
+  </text>
+  <text x="707" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" letter-spacing="6" font-weight="600" fill="#C59B63">
+    EMERGENCY RECOVERY PROTOCOLS
+  </text>
+
+  <!-- Botanical / Compass Motif Emblem -->
+  <g transform="translate(707, 560)">
+    <circle r="76" fill="none" stroke="#C59B63" stroke-width="2.5" stroke-opacity="0.6" />
+    <circle r="60" fill="none" stroke="#BD7469" stroke-width="1.5" stroke-opacity="0.4" stroke-dasharray="4,4" />
+    <!-- Calming Lotus / Leaf Shapes -->
+    <path d="M 0 -42 C 16 -20 20 10 0 35 C -20 10 -16 -20 0 -42 Z" fill="#BD7469" opacity="0.85" />
+    <path d="M -35 5 C -20 -10 10 -10 25 15 C 5 22 -15 20 -35 5 Z" fill="#E2B072" opacity="0.75" />
+    <path d="M 35 5 C 20 -10 -10 -10 -25 15 C -5 22 15 20 35 5 Z" fill="#E2B072" opacity="0.75" />
+    <circle r="9" fill="#C59B63" />
+    <line x1="-125" y1="0" x2="-85" y2="0" stroke="#C59B63" stroke-width="2" stroke-opacity="0.6" />
+    <line x1="85" y1="0" x2="125" y2="0" stroke="#C59B63" stroke-width="2" stroke-opacity="0.6" />
+  </g>
+
+  <!-- Part Indicator Pill -->
+  <g transform="translate(707, 720)">
+    <rect x="-190" y="-24" width="380" height="48" rx="24" fill="#FAF4EB" stroke="#C59B63" stroke-width="1.5" />
+    <text x="0" y="7" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" letter-spacing="3" fill="#BD7469">
+      FREE RESCUE PROTOCOL • PART 1
+    </text>
+  </g>
+
+  <!-- Main Title -->
+  <text x="707" y="890" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="82" font-weight="normal" fill="#2D2825">
+    The 72-Hour
+  </text>
+  <text x="707" y="1000" text-anchor="middle" font-family="Georgia, serif" font-size="88" font-weight="bold" fill="#BD7469">
+    Nervous System
+  </text>
+  <text x="707" y="1100" text-anchor="middle" font-family="Georgia, serif" font-size="84" font-weight="bold" fill="#C59B63">
+    Reset Guide
+  </text>
+
+  <!-- Elegant Line Accent -->
+  <line x1="520" y1="1170" x2="894" y2="1170" stroke="#C59B63" stroke-width="2" stroke-opacity="0.6" />
+
+  <!-- Subtitle -->
+  <text x="707" y="1250" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="400" fill="#5C524F">
+    Immediate Somatic Grounding to Halt Cortisol Spikes,
+  </text>
+  <text x="707" y="1300" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="400" fill="#5C524F">
+    Soothe Vagus Nerve Shock &amp; Clear Mental Loops
+  </text>
+
+  <!-- Key Highlights Strip -->
+  <g transform="translate(707, 1470)">
+    <rect x="-420" y="-45" width="840" height="90" rx="16" fill="#FFFFFF" stroke="#E2D5CC" stroke-width="1.5" />
+    <text x="0" y="-8" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#2D2825">
+      The 90-Sec Ice Protocol • 3-Fact Grounding • Body Anchor Map
+    </text>
+    <text x="0" y="24" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#8C7A74">
+      Printable PDF &amp; Smartphone Digital Format • Instant Delivery
+    </text>
+  </g>
+
+  <!-- Bottom Badge -->
+  <g transform="translate(707, 1690)">
+    <rect x="-260" y="-36" width="520" height="72" rx="36" fill="#BD7469" />
+    <text x="0" y="9" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF" letter-spacing="1">
+      COMPLIMENTARY ACCESS
+    </text>
+  </g>
+
+  <!-- Footer Imprint -->
+  <text x="707" y="1860" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" letter-spacing="4" fill="#8C7A74">
+    herhorizon.store • by Sara Mitchell
+  </text>
+</svg>

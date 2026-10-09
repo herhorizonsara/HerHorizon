@@ -184,19 +184,23 @@ export const Step7Bonuses: React.FC<Step7BonusesProps> = ({ onScrollToCheckout }
               {/* Tablet 1: First Date Red Flag Decoder */}
               <div className="w-full max-w-[210px] sm:w-1/3 flex flex-col items-center group">
                 <div className="relative w-full aspect-[3535/5000] rounded-xl sm:rounded-2xl overflow-hidden bg-white p-1 sm:p-1.5 border border-[#DECAC0] shadow-md group-hover:shadow-xl group-hover:-translate-y-1.5 transition-all duration-300">
-                  <img
-                    src="/cover-bonus-redflags.png"
-                    alt="First Date Red Flag Decoder Cover"
-                    onError={(e) => {
-                      const target = e.currentTarget;
-                      if (!target.dataset.triedImages) {
-                        target.dataset.triedImages = 'true';
-                        target.src = '/images/cover-bonus-redflags.png';
-                      }
-                    }}
-                    className="w-full h-full object-cover rounded-lg sm:rounded-xl select-none"
-                    loading="lazy"
-                  />
+                  <picture>
+                    <source type="image/webp" srcSet="/cover-bonus-redflags.webp, /images/cover-bonus-redflags.webp" />
+                    <img
+                      src="/cover-bonus-redflags.webp"
+                      alt="First Date Red Flag Decoder Cover"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        if (!target.dataset.triedImages) {
+                          target.dataset.triedImages = 'true';
+                          target.src = '/cover-bonus-redflags.png';
+                        }
+                      }}
+                      className="w-full h-full object-cover rounded-lg sm:rounded-xl select-none"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
                   <div className="absolute top-2 left-2 bg-[#BD7469] text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded shadow-xs">
                     Bonus 01
                   </div>
@@ -210,19 +214,23 @@ export const Step7Bonuses: React.FC<Step7BonusesProps> = ({ onScrollToCheckout }
               {/* Tablet 2: Home Reclamation Blueprint (Centerpiece) */}
               <div className="w-full max-w-[225px] sm:w-[36%] flex flex-col items-center group -translate-y-0 sm:-translate-y-2">
                 <div className="relative w-full aspect-[3535/5000] rounded-xl sm:rounded-2xl overflow-hidden bg-white p-1.5 sm:p-2 border-2 border-[#E2B072] shadow-xl group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-300">
-                  <img
-                    src="/cover-bonus-homereclaim.png"
-                    alt="Home Reclamation Blueprint Cover"
-                    onError={(e) => {
-                      const target = e.currentTarget;
-                      if (!target.dataset.triedImages) {
-                        target.dataset.triedImages = 'true';
-                        target.src = '/images/cover-bonus-homereclaim.png';
-                      }
-                    }}
-                    className="w-full h-full object-cover rounded-lg sm:rounded-xl select-none"
-                    loading="lazy"
-                  />
+                  <picture>
+                    <source type="image/webp" srcSet="/cover-bonus-homereclaim.webp, /images/cover-bonus-homereclaim.webp" />
+                    <img
+                      src="/cover-bonus-homereclaim.webp"
+                      alt="Home Reclamation Blueprint Cover"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        if (!target.dataset.triedImages) {
+                          target.dataset.triedImages = 'true';
+                          target.src = '/cover-bonus-homereclaim.png';
+                        }
+                      }}
+                      className="w-full h-full object-cover rounded-lg sm:rounded-xl select-none"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
                   <div className="absolute top-2.5 left-2.5 bg-[#E2B072] text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded shadow-xs">
                     Bonus 02 • Core
                   </div>
@@ -236,19 +244,23 @@ export const Step7Bonuses: React.FC<Step7BonusesProps> = ({ onScrollToCheckout }
               {/* Tablet 3: Solo Saturday Joy Bank */}
               <div className="w-full max-w-[210px] sm:w-1/3 flex flex-col items-center group">
                 <div className="relative w-full aspect-[3535/5000] rounded-xl sm:rounded-2xl overflow-hidden bg-white p-1 sm:p-1.5 border border-[#DECAC0] shadow-md group-hover:shadow-xl group-hover:-translate-y-1.5 transition-all duration-300">
-                  <img
-                    src="/cover-bonus-joybank.png"
-                    alt="Solo Saturday Joy Bank Cover"
-                    onError={(e) => {
-                      const target = e.currentTarget;
-                      if (!target.dataset.triedImages) {
-                        target.dataset.triedImages = 'true';
-                        target.src = '/images/cover-bonus-joybank.png';
-                      }
-                    }}
-                    className="w-full h-full object-cover rounded-lg sm:rounded-xl select-none"
-                    loading="lazy"
-                  />
+                  <picture>
+                    <source type="image/webp" srcSet="/cover-bonus-joybank.webp, /images/cover-bonus-joybank.webp" />
+                    <img
+                      src="/cover-bonus-joybank.webp"
+                      alt="Solo Saturday Joy Bank Cover"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        if (!target.dataset.triedImages) {
+                          target.dataset.triedImages = 'true';
+                          target.src = '/cover-bonus-joybank.png';
+                        }
+                      }}
+                      className="w-full h-full object-cover rounded-lg sm:rounded-xl select-none"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
                   <div className="absolute top-2 left-2 bg-[#BD7469] text-white text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded shadow-xs">
                     Bonus 03
                   </div>

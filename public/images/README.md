@@ -39,3 +39,14 @@ Place all image files in either `/public/` or `/public/images/`. The website aut
 | **`step3-morning-window.png`** | Sunlit morning window, ceramic coffee cup, white feather | 1920 × 1200 px (16:10) | Step 3 ("Awakening morning vision") |
 | **`step1-hero-mockup.png`** | Optional complete 5-device group composite shot | 1920 × 1080 px (16:9) | Hero Section alternative |
 | **`step4-roadmap-mockup.png`** | Optional iPad + 3 interior pages collage | 1600 × 1200 px (4:3) | Step 4 alternative |
+
+---
+
+## 4. Complimentary Free Guide Assets (`/free-guide`):
+
+| File Name | Product / Asset | Recommended Dimensions | Orientation | Format | App Location |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **`cover-free-reset-guide.png`** | Part 1: The 72-Hour Reset Guide Cover | **3535 × 5000 px** *(or 2480 × 3508 px, A4 ratio 1:1.414)* | **Vertical (Portrait)** | PNG / JPG | `/free-guide` Product 1 & Modal |
+| **`cover-free-anchor-card.png`** | Part 2: The 2 A.M. Emergency Anchor Card | **1920 × 1080 px** *(16:9 ratio, or 2000 × 1414 px landscape)* | **Horizontal (Landscape)** | PNG / JPG | `/free-guide` Product 2 & Modal |
+| **`free-guide-dual-mockup.png`** | Combined 2-Product Showcase Mockup | **1920 × 1080 px** *(16:9 ratio)* | **Horizontal Studio Composite** | PNG / JPG | `/free-guide` Hero Showcase |
+

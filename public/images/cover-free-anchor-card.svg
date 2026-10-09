@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="cardBgH" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#261F1B" />
+      <stop offset="50%" stop-color="#1C1715" />
+      <stop offset="100%" stop-color="#120F0E" />
+    </linearGradient>
+    <radialGradient id="goldGlowH" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#E2B072" stop-opacity="0.16" />
+      <stop offset="60%" stop-color="#BD7469" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#120F0E" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="goldCardH" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FDF3E3" />
+      <stop offset="50%" stop-color="#E2B072" />
+      <stop offset="100%" stop-color="#BD7469" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#cardBgH)" />
+  <rect width="1920" height="1080" fill="url(#goldGlowH)" />
+
+  <!-- Double Luxe Gold Borders (Horizontal Card) -->
+  <rect x="44" y="44" width="1832" height="992" rx="26" fill="none" stroke="url(#goldCardH)" stroke-width="3" />
+  <rect x="62" y="62" width="1796" height="956" rx="20" fill="none" stroke="#E2B072" stroke-width="1.5" stroke-opacity="0.45" stroke-dasharray="10,6" />
+
+  <!-- Corner Ornamental Accents -->
+  <circle cx="78" cy="78" r="4" fill="#E2B072" />
+  <circle cx="1842" cy="78" r="4" fill="#E2B072" />
+  <circle cx="78" cy="1002" r="4" fill="#E2B072" />
+  <circle cx="1842" cy="1002" r="4" fill="#E2B072" />
+
+  <!-- Top Header Strip -->
+  <g transform="translate(960, 120)">
+    <text x="-800" y="0" text-anchor="start" font-family="Georgia, serif" font-size="20" letter-spacing="6" font-weight="bold" fill="#E2B072">
+      HERHORIZON™
+    </text>
+    
+    <!-- Part Pill Badge -->
+    <rect x="-190" y="-22" width="380" height="42" rx="21" fill="#352A24" stroke="#E2B072" stroke-width="1.5" />
+    <text x="0" y="6" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" letter-spacing="3" fill="#FCE9CF">
+      PART 02 • BEDSIDE EMERGENCY CARD
+    </text>
+
+    <text x="800" y="0" text-anchor="end" font-family="Arial, sans-serif" font-size="15" letter-spacing="3" font-weight="600" fill="#DEC9BE">
+      SOMATIC EMERGENCY RESCUE
+    </text>
+  </g>
+
+  <!-- Horizontal Content Layout: Left Hero Column & Right Protocol Column -->
+  
+  <!-- LEFT COLUMN: Headline & Celestial Emblem -->
+  <g transform="translate(140, 200)">
+    <!-- Crescent Moon Emblem -->
+    <g transform="translate(70, 70)">
+      <circle r="52" fill="#2D231E" stroke="#E2B072" stroke-width="2" stroke-opacity="0.6" />
+      <path d="M 10 -32 A 36 36 0 0 0 10 32 A 26 26 0 0 1 10 -32 Z" fill="#F3D5A5" />
+      <polygon points="26,-10 30,-2 38,0 30,2 26,10 22,2 14,0 22,-2" fill="#FAF4EB" />
+    </g>
+
+    <text x="150" y="55" font-family="Arial, sans-serif" font-size="16" letter-spacing="4" font-weight="700" fill="#DECAC0">
+      FOR RACING THOUGHTS &amp; SUDDEN AWAKENINGS
+    </text>
+    <text x="150" y="90" font-family="Georgia, serif" font-size="22" font-style="italic" fill="#E2B072">
+      When the body wakes up in fight-or-flight...
+    </text>
+
+    <!-- Main Title -->
+    <text x="0" y="220" font-family="Georgia, serif" font-style="italic" font-size="58" font-weight="normal" fill="#FAF4EB">
+      The 2 A.M.
+    </text>
+    <text x="0" y="300" font-family="Georgia, serif" font-size="70" font-weight="bold" fill="#E2B072">
+      Emergency Anchor Card
+    </text>
+
+    <line x1="0" y1="340" x2="680" y2="340" stroke="#E2B072" stroke-width="2" stroke-opacity="0.6" />
+
+    <text x="0" y="390" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#E0D5CC">
+      A high-contrast horizontal emergency card to keep on your bedside
+    </text>
+    <text x="0" y="425" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#E0D5CC">
+      table or save directly as your phone lockscreen.
+    </text>
+
+    <!-- Pocket Card Badge -->
+    <g transform="translate(0, 480)">
+      <rect x="0" y="0" width="360" height="52" rx="26" fill="#BD7469" stroke="#E2B072" stroke-width="1.5" />
+      <text x="180" y="33" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF" letter-spacing="2">
+        HORIZONTAL CARD • 16:9
+      </text>
+    </g>
+  </g>
+
+  <!-- RIGHT COLUMN: Somatic Protocol Box (Horizontal Card Style) -->
+  <g transform="translate(940, 200)">
+    <rect x="0" y="0" width="840" height="580" rx="22" fill="#241C18" stroke="#E2B072" stroke-width="2" stroke-opacity="0.8" />
+
+    <!-- Protocol Header -->
+    <rect x="0" y="0" width="840" height="90" rx="22" fill="#2D231E" />
+    <rect x="0" y="70" width="840" height="20" fill="#2D231E" />
+    <line x1="0" y1="90" x2="840" y2="90" stroke="#E2B072" stroke-width="1.5" stroke-opacity="0.5" />
+
+    <text x="420" y="55" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="26" font-weight="bold" fill="#FCE9CF">
+      &ldquo;The Courtroom in Your Head Has No Jurisdiction at 2:00 A.M.&rdquo;
+    </text>
+
+    <!-- 3 Actionable Anchors -->
+    <!-- Anchor 1 -->
+    <g transform="translate(50, 140)">
+      <circle cx="24" cy="24" r="22" fill="#3D3028" stroke="#E2B072" stroke-width="1.5" />
+      <text x="24" y="31" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="bold" fill="#E2B072">1</text>
+      <text x="68" y="22" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#FAF4EB">
+        PALM TO STERNUM • RESET BREATH
+      </text>
+      <text x="68" y="52" font-family="Arial, sans-serif" font-size="17" fill="#DEC9BE">
+        Drop shoulders. Place warm hand on your chest. Exhale longer than you inhale.
+      </text>
+    </g>
+
+    <line x1="50" y1="235" x2="790" y2="235" stroke="#E2B072" stroke-width="1" stroke-opacity="0.25" stroke-dasharray="6,4" />
+
+    <!-- Anchor 2 -->
+    <g transform="translate(50, 275)">
+      <circle cx="24" cy="24" r="22" fill="#3D3028" stroke="#E2B072" stroke-width="1.5" />
+      <text x="24" y="31" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="bold" fill="#E2B072">2</text>
+      <text x="68" y="22" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#FAF4EB">
+        NO DEFENSE REQUIRED IN THE DARK
+      </text>
+      <text x="68" y="52" font-family="Arial, sans-serif" font-size="17" fill="#DEC9BE">
+        You owe no answers tonight. Repeat: &ldquo;Nothing is being decided right now.&rdquo;
+      </text>
+    </g>
+
+    <line x1="50" y1="370" x2="790" y2="370" stroke="#E2B072" stroke-width="1" stroke-opacity="0.25" stroke-dasharray="6,4" />
+
+    <!-- Anchor 3 -->
+    <g transform="translate(50, 410)">
+      <circle cx="24" cy="24" r="22" fill="#3D3028" stroke="#E2B072" stroke-width="1.5" />
+      <text x="24" y="31" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="bold" fill="#E2B072">3</text>
+      <text x="68" y="22" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#FAF4EB">
+        DISMISS THE COURTROOM HEARING
+      </text>
+      <text x="68" y="52" font-family="Arial, sans-serif" font-size="17" fill="#DEC9BE">
+        The verdict was already sealed the day you chose peace. Close your eyes.
+      </text>
+    </g>
+
+    <!-- Micro Quote Bottom of Box -->
+    <g transform="translate(420, 535)">
+      <text x="0" y="0" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="16" fill="#E2B072">
+        ✦ Keep within arm’s reach of your pillow ✦
+      </text>
+    </g>
+  </g>
+
+  <!-- Bottom Brand Footer -->
+  <g transform="translate(960, 970)">
+    <text x="-800" y="0" text-anchor="start" font-family="Arial, sans-serif" font-size="16" letter-spacing="3" fill="#A8968C">
+      herhorizon.store • Complimentary Digital Tool
+    </text>
+    <text x="0" y="0" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" letter-spacing="4" font-weight="bold" fill="#E2B072">
+      HIGH-CONTRAST BEDSIDE EMERGENCY ANCHOR
+    </text>
+    <text x="800" y="0" text-anchor="end" font-family="Arial, sans-serif" font-size="16" letter-spacing="3" fill="#A8968C">
+      Part of The HerHorizon System
+    </text>
+  </g>
+</svg>

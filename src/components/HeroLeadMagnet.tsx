@@ -213,7 +213,7 @@ export const HeroLeadMagnet: React.FC<HeroLeadMagnetProps> = ({
         <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-[#7A756F]">
           <span className="flex items-center space-x-1.5">
             <span className="w-2 h-2 rounded-full bg-[#8A9A86]" />
-            <span>Over 4,200+ women grounded</span>
+            <span>48 women grounded</span>
           </span>
           <span className="flex items-center space-x-1.5">
             <span className="w-2 h-2 rounded-full bg-[#E3A88D]" />

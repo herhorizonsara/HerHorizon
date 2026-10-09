@@ -29,10 +29,19 @@ export const CanvaImagePlaceholder: React.FC<CanvaImagePlaceholderProps> = ({
   const [localImage, setLocalImage] = useState<string | null>(null);
   const [candidateIndex, setCandidateIndex] = useState(0);
 
-  // Generate all potential candidates (checking both /images/ and / root public folder, plus png/jpg alternates)
+  // Generate all potential candidates (prioritizing ultra-fast WebP candidates, then fallback png/jpg)
   const candidateList = React.useMemo(() => {
     const rawList = [filename, ...fallbackFilenames];
     const expanded: string[] = [];
+    
+    // First pass: add modern lightweight WebP versions
+    rawList.forEach((name) => {
+      const baseNoExt = name.replace(/\.(png|jpe?g)$/i, '');
+      expanded.push(`/${baseNoExt}.webp`);
+      expanded.push(`/images/${baseNoExt}.webp`);
+    });
+
+    // Second pass: add PNG / JPG standard versions as fallbacks
     rawList.forEach((name) => {
       expanded.push(`/${name}`);
       expanded.push(`/images/${name}`);
