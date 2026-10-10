@@ -136,14 +136,15 @@ export const Step7Bonuses: React.FC<Step7BonusesProps> = ({ onScrollToCheckout }
     <section id="step-7" className="py-14 sm:py-20 md:py-28 bg-[#FFFDF9] border-t border-[#EFE5DC] text-[#2D2A26] relative text-center">
       <div className="max-w-4xl mx-auto px-4 sm:px-8">
         
-        {/* Canva Top Button: "GET THE SYSTEM NOW" */}
+        {/* Canva Top Button: "GET THE SYSTEM NOW" (Trauma-Informed Somatic Breathe & Shimmer) */}
         <div className="mb-6 sm:mb-10 px-1">
           <button
             onClick={onScrollToCheckout}
-            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#E2B072] hover:bg-[#D4A373] active:bg-[#C59B63] text-white font-medium text-xs xs:text-sm sm:text-base tracking-wide px-8 sm:px-10 py-3.5 sm:py-4 rounded-full transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.98] cursor-pointer uppercase font-sans min-h-[48px]"
+            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#E2B072] hover:bg-[#D4A373] active:bg-[#C59B63] text-white font-medium text-xs xs:text-sm sm:text-base tracking-wide px-8 sm:px-10 py-3.5 sm:py-4 rounded-full transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98] cursor-pointer uppercase font-sans min-h-[48px] btn-shimmer-container animate-breathe group"
           >
+            <span className="btn-shimmer-sweep" />
             <span>GET THE SYSTEM NOW</span>
-            <ArrowRight className="w-4 h-4 shrink-0" />
+            <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
 

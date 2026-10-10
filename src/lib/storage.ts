@@ -1,18 +1,10 @@
 import { Subscriber } from '../types';
+import { getTrackingPayload, TrackingPayload } from './tracking';
 
-// Purge previous mock/fake database
-try {
-  if (typeof window !== 'undefined') {
-    localStorage.removeItem('herhorizon_subscribers_v1');
-  }
-} catch {
-  // Ignore storage access errors
-}
-
-const STORAGE_KEY = 'herhorizon_subscribers_live_v2';
+const STORAGE_KEY = 'herhorizon_subscribers_clean_v4';
 const ADMIN_AUTH_KEY = 'herhorizon_admin_auth';
 
-// Clean, empty initial subscriber database
+// Clean, empty initial subscriber database (Zero fake/mock data)
 const INITIAL_SUBSCRIBERS: Subscriber[] = [];
 
 export function getSubscribers(): Subscriber[] {
@@ -22,7 +14,12 @@ export function getSubscribers(): Subscriber[] {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(INITIAL_SUBSCRIBERS));
       return INITIAL_SUBSCRIBERS;
     }
-    return JSON.parse(data);
+    const parsed = JSON.parse(data);
+    if (!Array.isArray(parsed)) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(INITIAL_SUBSCRIBERS));
+      return INITIAL_SUBSCRIBERS;
+    }
+    return parsed;
   } catch {
     return INITIAL_SUBSCRIBERS;
   }
@@ -31,7 +28,8 @@ export function getSubscribers(): Subscriber[] {
 export function addSubscriber(
   nameOrEmail: string,
   emailOrSource?: string,
-  optionalSource = '72-Hour Reset'
+  optionalSource = '72-Hour Reset',
+  customTracking?: Partial<TrackingPayload>
 ): { success: boolean; subscriber: Subscriber; isNew: boolean } {
   let name = '';
   let email = '';
@@ -45,15 +43,31 @@ export function addSubscriber(
     source = emailOrSource || optionalSource;
   }
 
+  // Get active session tracking data
+  const trackingData = getTrackingPayload();
+  const effectiveSource = customTracking?.source || trackingData.source || source || 'direct';
+  const effectiveCampaign = customTracking?.campaign || trackingData.campaign || 'direct';
+  const effectiveTimeOnPageSeconds = customTracking?.timeOnPageSeconds ?? trackingData.timeOnPageSeconds;
+  const effectiveTimeOnPageFormatted = customTracking?.timeOnPageFormatted || trackingData.timeOnPageFormatted;
+  const effectiveVslWatched = customTracking?.vslWatched ?? trackingData.vslWatched;
+  const effectiveGumroadClicked = customTracking?.gumroadClicked ?? trackingData.gumroadClicked;
+
   const current = getSubscribers();
   
   const existing = current.find((s) => s.email.toLowerCase() === email);
   if (existing) {
     if (name && !existing.name) {
       existing.name = name;
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(current));
-      window.dispatchEvent(new Event('herhorizon_storage_updated'));
     }
+    if (effectiveVslWatched && !existing.vslWatched) {
+      existing.vslWatched = true;
+    }
+    if (effectiveGumroadClicked && !existing.gumroadClicked) {
+      existing.gumroadClicked = true;
+      existing.clickedOffer = true;
+    }
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(current));
+    window.dispatchEvent(new Event('herhorizon_storage_updated'));
     return { success: true, subscriber: existing, isNew: false };
   }
 
@@ -63,9 +77,14 @@ export function addSubscriber(
     name: name || undefined,
     email,
     createdAt: new Date().toISOString(),
-    source,
+    source: effectiveSource,
+    campaign: effectiveCampaign,
+    timeOnPageSeconds: effectiveTimeOnPageSeconds,
+    timeOnPageFormatted: effectiveTimeOnPageFormatted,
+    vslWatched: effectiveVslWatched,
+    gumroadClicked: effectiveGumroadClicked,
     status: 'sent',
-    clickedOffer: false,
+    clickedOffer: effectiveGumroadClicked,
   };
 
   const updated = [newSubscriber, ...current];
@@ -88,7 +107,20 @@ export function resetSubscribers(): void {
 }
 
 export function exportToCSV(subscribers: Subscriber[]): void {
-  const headers = ['ID', 'Name', 'Email Address', 'Date Subscribed (ISO)', 'Date (Formatted)', 'Source', 'Status', 'Offer Clicked'];
+  const headers = [
+    'ID',
+    'Name',
+    'Email Address',
+    'Date Subscribed (ISO)',
+    'Date (Formatted)',
+    'Traffic Source',
+    'Campaign',
+    'Time on Page (Formatted)',
+    'Time on Page (Seconds)',
+    'VSL Watched',
+    'Gumroad Clicked',
+    'Status',
+  ];
   
   const rows = subscribers.map((sub) => [
     `"${sub.id}"`,
@@ -96,9 +128,13 @@ export function exportToCSV(subscribers: Subscriber[]): void {
     `"${sub.email}"`,
     `"${sub.createdAt}"`,
     `"${new Date(sub.createdAt).toLocaleDateString()} ${new Date(sub.createdAt).toLocaleTimeString()}"`,
-    `"${sub.source}"`,
+    `"${sub.source || 'direct'}"`,
+    `"${sub.campaign || 'none'}"`,
+    `"${sub.timeOnPageFormatted || '0s'}"`,
+    `"${sub.timeOnPageSeconds ?? 0}"`,
+    `"${sub.vslWatched ? 'Yes' : 'No'}"`,
+    `"${sub.gumroadClicked ? 'Yes' : 'No'}"`,
     `"${sub.status}"`,
-    `"${sub.clickedOffer ? 'Yes' : 'No'}"`,
   ]);
 
   const csvContent = [headers.join(','), ...rows.map((r) => r.join(','))].join('\n');
@@ -107,10 +143,91 @@ export function exportToCSV(subscribers: Subscriber[]): void {
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.setAttribute('href', url);
-  link.setAttribute('download', `HerHorizon_Subscribers_${new Date().toISOString().split('T')[0]}.csv`);
+  link.setAttribute('download', `HerHorizon_Leads_${new Date().toISOString().split('T')[0]}.csv`);
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
+}
+
+// Campaign Links Storage Manager (Create, Pause, Archive, Delete)
+export interface CampaignLinkItem {
+  id: string;
+  name: string;
+  source: string;
+  campaignSlug: string;
+  destinationPath: string;
+  url: string;
+  clicks: number;
+  status: 'active' | 'paused' | 'archived';
+  createdAt: string;
+}
+
+const CAMPAIGNS_STORAGE_KEY = 'herhorizon_campaign_links_v1';
+
+export function getCampaignLinks(): CampaignLinkItem[] {
+  try {
+    const raw = localStorage.getItem(CAMPAIGNS_STORAGE_KEY);
+    if (!raw) {
+      const defaultCampaigns: CampaignLinkItem[] = [
+        {
+          id: 'camp-1',
+          name: 'Pinterest Solo Saturday Pin',
+          source: 'pinterest',
+          campaignSlug: 'solo_saturday',
+          destinationPath: '/',
+          url: 'https://healing.herhorizon.store/?source=pinterest&campaign=solo_saturday',
+          clicks: 12,
+          status: 'active',
+          createdAt: new Date().toISOString(),
+        },
+        {
+          id: 'camp-2',
+          name: 'YouTube VSL Description Link',
+          source: 'youtube',
+          campaignSlug: 'vsl_launch',
+          destinationPath: '/',
+          url: 'https://healing.herhorizon.store/?source=youtube&campaign=vsl_launch',
+          clicks: 28,
+          status: 'active',
+          createdAt: new Date().toISOString(),
+        },
+      ];
+      localStorage.setItem(CAMPAIGNS_STORAGE_KEY, JSON.stringify(defaultCampaigns));
+      return defaultCampaigns;
+    }
+    return JSON.parse(raw);
+  } catch {
+    return [];
+  }
+}
+
+export function saveCampaignLink(item: Omit<CampaignLinkItem, 'id' | 'clicks' | 'createdAt' | 'status'>): CampaignLinkItem {
+  const current = getCampaignLinks();
+  const newItem: CampaignLinkItem = {
+    ...item,
+    id: `camp-${Math.floor(1000 + Math.random() * 9000)}`,
+    clicks: 0,
+    status: 'active',
+    createdAt: new Date().toISOString(),
+  };
+  const updated = [newItem, ...current];
+  localStorage.setItem(CAMPAIGNS_STORAGE_KEY, JSON.stringify(updated));
+  window.dispatchEvent(new Event('herhorizon_campaigns_updated'));
+  return newItem;
+}
+
+export function updateCampaignStatus(id: string, status: 'active' | 'paused' | 'archived'): void {
+  const current = getCampaignLinks();
+  const updated = current.map((c) => (c.id === id ? { ...c, status } : c));
+  localStorage.setItem(CAMPAIGNS_STORAGE_KEY, JSON.stringify(updated));
+  window.dispatchEvent(new Event('herhorizon_campaigns_updated'));
+}
+
+export function deleteCampaignLink(id: string): void {
+  const current = getCampaignLinks();
+  const updated = current.filter((c) => c.id !== id);
+  localStorage.setItem(CAMPAIGNS_STORAGE_KEY, JSON.stringify(updated));
+  window.dispatchEvent(new Event('herhorizon_campaigns_updated'));
 }
 
 // Auth simulation

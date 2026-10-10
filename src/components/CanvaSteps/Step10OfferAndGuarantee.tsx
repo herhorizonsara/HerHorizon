@@ -1,6 +1,7 @@
 import React from 'react';
 import { CanvaImagePlaceholder } from '../CanvaImagePlaceholder';
 import { ArrowRight, ShieldCheck, Heart, Sparkles, Check, Lock } from 'lucide-react';
+import { trackGumroadClick } from '../../lib/tracking';
 
 export const Step10OfferAndGuarantee: React.FC = () => {
   return (
@@ -117,7 +118,7 @@ export const Step10OfferAndGuarantee: React.FC = () => {
         <div className="max-w-2xl mx-auto my-8 sm:my-12 flex flex-col items-center">
           
           {/* Golden Seal Graphic / Image */}
-          <div className="w-32 h-32 sm:w-36 sm:h-36 relative mb-5 sm:mb-6">
+          <div className="w-32 h-32 sm:w-36 sm:h-36 relative mb-5 sm:mb-6 animate-somatic-float-gentle">
             <CanvaImagePlaceholder
               step={10}
               filename="guarantee-badge.png"
@@ -152,16 +153,18 @@ export const Step10OfferAndGuarantee: React.FC = () => {
             If you don’t feel a flicker of your real self returning within 7 days, email me for a full refund. No questions asked. I am committed to your peace of mind, not your money.
           </p>
 
-          {/* Canva Button: "I'M READY TO COME HOME" (Dusty Rose Pill Button) */}
+          {/* Canva Button: "I'M READY TO COME HOME" (Dusty Rose Pill Button with Somatic Breathing & Shimmer) */}
           <div className="w-full max-w-md mx-auto space-y-3.5 px-1">
             <a
               href="https://herhorizon.gumroad.com/l/rebuild-system/REBUILD50"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center space-x-2 bg-[#BD7469] hover:bg-[#A8584D] active:bg-[#96473D] text-white font-medium text-xs xs:text-sm sm:text-base tracking-wider px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl active:scale-[0.98] cursor-pointer uppercase font-sans min-h-[48px]"
+              onClick={() => trackGumroadClick()}
+              className="w-full inline-flex items-center justify-center space-x-2 bg-[#BD7469] hover:bg-[#A8584D] active:bg-[#96473D] text-white font-medium text-xs xs:text-sm sm:text-base tracking-wider px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl active:scale-[0.98] cursor-pointer uppercase font-sans min-h-[48px] btn-shimmer-container animate-breathe group"
             >
+              <span className="btn-shimmer-sweep" />
               <span>I&rsquo;M READY TO COME HOME — $13 (50% OFF)</span>
-              <ArrowRight className="w-4 h-4 text-white shrink-0" />
+              <ArrowRight className="w-4 h-4 text-white shrink-0 group-hover:translate-x-1 transition-transform" />
             </a>
 
             <div className="flex items-center justify-center space-x-1.5 text-[11px] sm:text-xs text-[#8C7A74] pt-1">

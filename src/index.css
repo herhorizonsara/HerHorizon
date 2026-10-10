@@ -104,3 +104,123 @@
   background: linear-gradient(145deg, #C05746 0%, #B14B3A 100%);
 }
 
+/* =========================================================================
+   SOMATIC RESPIRATORY ANIMATION SYSTEM (Safe, Calming, Trauma-Informed)
+   Designed to regulate the nervous system: 4-6s breathing cycles, zero jarring
+   ========================================================================= */
+
+@keyframes breathe-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 20px -4px rgba(189, 116, 105, 0.28), 0 0 0 0 rgba(226, 176, 114, 0);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 12px 32px -4px rgba(189, 116, 105, 0.42), 0 0 24px 3px rgba(226, 176, 114, 0.32);
+  }
+}
+
+@keyframes breathe-pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 2px 10px rgba(226, 176, 114, 0.12);
+  }
+  50% {
+    transform: scale(1.015);
+    box-shadow: 0 6px 18px rgba(226, 176, 114, 0.28);
+  }
+}
+
+@keyframes gentle-shimmer {
+  0% {
+    transform: translateX(-120%);
+  }
+  35%, 100% {
+    transform: translateX(220%);
+  }
+}
+
+@keyframes somatic-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes somatic-float-gentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(0.6deg);
+  }
+}
+
+@keyframes warm-ambient-drift {
+  0%, 100% {
+    opacity: 0.12;
+    transform: scale(1) translate(0px, 0px);
+  }
+  50% {
+    opacity: 0.22;
+    transform: scale(1.08) translate(12px, -8px);
+  }
+}
+
+.animate-breathe {
+  animation: breathe-pulse 4.5s ease-in-out infinite;
+}
+
+.animate-breathe-subtle {
+  animation: breathe-pulse-subtle 4.5s ease-in-out infinite;
+}
+
+.animate-somatic-float {
+  animation: somatic-float 6s ease-in-out infinite;
+}
+
+.animate-somatic-float-gentle {
+  animation: somatic-float-gentle 7s ease-in-out infinite;
+}
+
+.animate-ambient-glow {
+  animation: warm-ambient-drift 8s ease-in-out infinite;
+}
+
+.btn-shimmer-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer-sweep {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 100%
+  );
+  animation: gentle-shimmer 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+/* Accessibility: Respect Users with Motion Sensitivity */
+@media (prefers-reduced-motion: reduce) {
+  .animate-breathe,
+  .animate-breathe-subtle,
+  .animate-somatic-float,
+  .animate-somatic-float-gentle,
+  .animate-ambient-glow,
+  .btn-shimmer-sweep {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+

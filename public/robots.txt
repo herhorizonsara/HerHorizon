@@ -1,0 +1,12 @@
+# HerHorizon - Technical SEO Robots Configuration
+# Domain: https://healing.herhorizon.store
+
+User-agent: *
+Allow: /
+
+# Protect backend, admin panels, and confidential data
+Disallow: /admin
+Disallow: /admin/
+
+# Search Engine Sitemap Index
+Sitemap: https://healing.herhorizon.store/sitemap.xml

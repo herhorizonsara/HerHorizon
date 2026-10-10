@@ -356,14 +356,15 @@ export const FreeGuidePage: React.FC<FreeGuidePageProps> = ({ onBackToSite }) =>
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full inline-flex items-center justify-center space-x-2 bg-[#BD7469] hover:bg-[#A8584D] active:bg-[#96473D] text-white font-semibold text-sm sm:text-base tracking-wide px-6 py-4 rounded-full transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.98] cursor-pointer uppercase font-sans min-h-[50px]"
+                className="w-full inline-flex items-center justify-center space-x-2 bg-[#BD7469] hover:bg-[#A8584D] active:bg-[#96473D] text-white font-semibold text-sm sm:text-base tracking-wide px-6 py-4 rounded-full transition-all duration-300 shadow-md hover:shadow-xl active:scale-[0.98] cursor-pointer uppercase font-sans min-h-[50px] btn-shimmer-container animate-breathe group"
               >
+                <span className="btn-shimmer-sweep" />
                 {loading ? (
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
                 ) : (
                   <>
                     <span>CLAIM MY FREE 72-HOUR RESET NOW 🕊️</span>
-                    <ArrowRight className="w-4 h-4 shrink-0" />
+                    <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" />
                   </>
                 )}
               </button>

@@ -4,9 +4,10 @@ import { BrandLogo } from './BrandLogo';
 
 interface FooterProps {
   onOpenAdmin?: () => void;
+  onOpenBlog?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = () => {
+export const Footer: React.FC<FooterProps> = ({ onOpenAdmin, onOpenBlog }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -37,6 +38,20 @@ export const Footer: React.FC<FooterProps> = () => {
               Sanctuary Links
             </span>
             <ul className="space-y-1.5 text-[#A8A199]">
+              <li>
+                <a
+                  href="/blog"
+                  onClick={(e) => {
+                    if (onOpenBlog) {
+                      e.preventDefault();
+                      onOpenBlog();
+                    }
+                  }}
+                  className="block py-1 hover:text-[#E3A88D] transition-colors"
+                >
+                  The Rebuild Journal (Articles) 📖
+                </a>
+              </li>
               <li>
                 <a
                   href="https://herhorizon.gumroad.com/l/72-hour-reset"

@@ -12,18 +12,25 @@ import { Step9QuestionsAndLetter } from './components/CanvaSteps/Step9QuestionsA
 import { Step10OfferAndGuarantee } from './components/CanvaSteps/Step10OfferAndGuarantee';
 import { GroundingTool } from './components/GroundingTool';
 import { Testimonials } from './components/Testimonials';
+import { LatestFromJournalSection } from './components/Journal/LatestFromJournalSection';
 import { Footer } from './components/Footer';
 import { ResetGuideModal } from './components/ResetGuideModal';
 import { ImageGuideModal } from './components/ImageGuideModal';
 import { AdminDashboard } from './components/Admin/AdminDashboard';
 import { AdminLogin } from './components/Admin/AdminLogin';
 import { FreeGuidePage } from './components/FreeGuide/FreeGuidePage';
+import { BlogIndex } from './components/Blog/BlogIndex';
+import { BlogPostPage } from './components/Blog/BlogPostPage';
+import { resetHomeSeo } from './lib/seoHelper';
 import { isAdminAuthenticated } from './lib/storage';
+import { initTracking, trackGumroadClick } from './lib/tracking';
 import { Sparkles, ArrowRight, ShieldCheck, Feather, Heart, Image as ImageIcon } from 'lucide-react';
 
 export default function App() {
   const [isAdminView, setIsAdminView] = useState(false);
   const [isFreeGuideView, setIsFreeGuideView] = useState(false);
+  const [isBlogIndexView, setIsBlogIndexView] = useState(false);
+  const [currentBlogSlug, setCurrentBlogSlug] = useState<string | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [resetModalOpen, setResetModalOpen] = useState(false);
   const [imageGuideOpen, setImageGuideOpen] = useState(false);
@@ -32,20 +39,47 @@ export default function App() {
   const [showStickyBar, setShowStickyBar] = useState(false);
 
   useEffect(() => {
+    initTracking();
     setIsAuthenticated(isAdminAuthenticated());
 
-    // Check if URL has /admin or /free-guide path
+    // Check if URL has /admin, /free-guide, /blog or /blog/:slug path
     const checkRoute = () => {
-      const path = window.location.pathname.toLowerCase();
-      if (path === '/admin' || path.startsWith('/admin/')) {
+      const path = window.location.pathname;
+      const lower = path.toLowerCase();
+      if (lower === '/admin' || lower.startsWith('/admin/')) {
         setIsAdminView(true);
         setIsFreeGuideView(false);
-      } else if (path === '/free-guide' || path.startsWith('/free-guide/')) {
+        setIsBlogIndexView(false);
+        setCurrentBlogSlug(null);
+      } else if (lower === '/free-guide' || lower.startsWith('/free-guide/')) {
         setIsFreeGuideView(true);
         setIsAdminView(false);
+        setIsBlogIndexView(false);
+        setCurrentBlogSlug(null);
+      } else if (lower.startsWith('/blog/')) {
+        const slug = path.split('/')[2];
+        if (slug) {
+          setCurrentBlogSlug(slug);
+          setIsBlogIndexView(false);
+          setIsAdminView(false);
+          setIsFreeGuideView(false);
+        } else {
+          setIsBlogIndexView(true);
+          setCurrentBlogSlug(null);
+          setIsAdminView(false);
+          setIsFreeGuideView(false);
+        }
+      } else if (lower === '/blog' || lower === '/blog/') {
+        setIsBlogIndexView(true);
+        setCurrentBlogSlug(null);
+        setIsAdminView(false);
+        setIsFreeGuideView(false);
       } else {
         setIsAdminView(false);
         setIsFreeGuideView(false);
+        setIsBlogIndexView(false);
+        setCurrentBlogSlug(null);
+        resetHomeSeo();
       }
     };
     checkRoute();
@@ -66,10 +100,37 @@ export default function App() {
   const handleBackToSite = () => {
     setIsAdminView(false);
     setIsFreeGuideView(false);
+    setIsBlogIndexView(false);
+    setCurrentBlogSlug(null);
+    resetHomeSeo();
     const path = window.location.pathname.toLowerCase();
     if (path !== '/' && path !== '') {
       window.history.pushState({}, '', '/');
     }
+  };
+
+  const handleOpenBlog = () => {
+    setIsBlogIndexView(true);
+    setCurrentBlogSlug(null);
+    setIsAdminView(false);
+    setIsFreeGuideView(false);
+    window.history.pushState({}, '', '/blog');
+  };
+
+  const handleOpenBlogPost = (slug: string) => {
+    setCurrentBlogSlug(slug);
+    setIsBlogIndexView(false);
+    setIsAdminView(false);
+    setIsFreeGuideView(false);
+    window.history.pushState({}, '', `/blog/${slug}`);
+  };
+
+  const handleOpenFreeGuide = () => {
+    setIsFreeGuideView(true);
+    setIsAdminView(false);
+    setIsBlogIndexView(false);
+    setCurrentBlogSlug(null);
+    window.history.pushState({}, '', '/free-guide');
   };
 
   const scrollToCheckout = () => {
@@ -78,6 +139,33 @@ export default function App() {
       el.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // If viewing specific single blog post
+  if (currentBlogSlug) {
+    return (
+      <BlogPostPage
+        slug={currentBlogSlug}
+        onBackToBlog={handleOpenBlog}
+        onSelectPost={handleOpenBlogPost}
+        onNavigateToFreeGuide={handleOpenFreeGuide}
+        onNavigateToSystem={() => {
+          handleBackToSite();
+          setTimeout(scrollToCheckout, 100);
+        }}
+      />
+    );
+  }
+
+  // If on /blog listing page
+  if (isBlogIndexView) {
+    return (
+      <BlogIndex
+        onBackToSite={handleBackToSite}
+        onSelectPost={handleOpenBlogPost}
+        onNavigateToFreeGuide={handleOpenFreeGuide}
+      />
+    );
+  }
 
   // If on /free-guide dedicated page
   if (isFreeGuideView) {
@@ -94,7 +182,12 @@ export default function App() {
         />
       );
     }
-    return <AdminDashboard onBackToSite={handleBackToSite} />;
+    return (
+      <AdminDashboard
+        onBackToSite={handleBackToSite}
+        onViewLiveArticle={handleOpenBlogPost}
+      />
+    );
   }
 
   return (
@@ -103,6 +196,11 @@ export default function App() {
       {/* Navigation with integrated top announcement bar */}
       <Navbar
         onOpenImageGuide={() => setImageGuideOpen(true)}
+        onOpenBlog={handleOpenBlog}
+        onOpenAdmin={() => {
+          setIsAdminView(true);
+          window.history.pushState({}, '', '/admin');
+        }}
       />
 
       {/* PAGE 1: THE FRONT-END LANDING PAGE (User Facing - 10 Canva Steps in Sequence) */}
@@ -149,7 +247,13 @@ export default function App() {
         {/* Authentic Field Notes & Real Stories */}
         <Testimonials />
 
-        {/* Step 9: FAQ & The Homecoming Invitation */}
+        {/* The Sunday Soul Notes: Latest from the Journal (3-Column Editorial Magazine Grid) */}
+        <LatestFromJournalSection
+          onSelectPost={handleOpenBlogPost}
+          onOpenBlog={handleOpenBlog}
+        />
+
+        {/* Step 9: FAQ (Accordion Style with Clinical Search Queries) & The Homecoming Invitation */}
         <Step9QuestionsAndLetter />
 
         {/* Step 10: The Offer, Value Breakdown & 100% Guarantee */}
@@ -158,7 +262,13 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer
+        onOpenBlog={handleOpenBlog}
+        onOpenAdmin={() => {
+          setIsAdminView(true);
+          window.history.pushState({}, '', '/admin');
+        }}
+      />
 
       {/* Interactive 72-Hour Reset Guide & Anchor Card Modal */}
       <ResetGuideModal
@@ -201,10 +311,12 @@ export default function App() {
                 href="https://herhorizon.gumroad.com/l/rebuild-system/REBUILD50"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center space-x-1.5 bg-[#BD7469] hover:bg-[#A8584D] active:bg-[#97463C] text-white text-[11px] xs:text-xs font-semibold px-3.5 sm:px-5 py-2.5 rounded-full shadow-md transition-all shrink-0 active:scale-[0.98] min-h-[44px]"
+                onClick={() => trackGumroadClick()}
+                className="flex-1 sm:flex-initial inline-flex items-center justify-center space-x-1.5 bg-[#BD7469] hover:bg-[#A8584D] active:bg-[#97463C] text-white text-[11px] xs:text-xs font-semibold px-3.5 sm:px-5 py-2.5 rounded-full shadow-md transition-all shrink-0 active:scale-[0.98] min-h-[44px] btn-shimmer-container animate-breathe group"
               >
+                <span className="btn-shimmer-sweep" />
                 <span>Get System — $13 (50% Off)</span>
-                <ArrowRight className="w-3.5 h-3.5 shrink-0" />
+                <ArrowRight className="w-3.5 h-3.5 shrink-0 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
           </div>

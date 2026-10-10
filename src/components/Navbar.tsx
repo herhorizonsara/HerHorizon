@@ -5,10 +5,11 @@ import { BrandLogo } from './BrandLogo';
 interface NavbarProps {
   onOpenAdmin?: () => void;
   onOpenImageGuide?: () => void;
+  onOpenBlog?: () => void;
   isAdmin?: boolean;
 }
 
-export const Navbar: React.FC<NavbarProps> = () => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenBlog }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -91,6 +92,18 @@ export const Navbar: React.FC<NavbarProps> = () => {
             >
               Free Reset 🕊️
             </a>
+            <a
+              href="/blog"
+              onClick={(e) => {
+                if (onOpenBlog) {
+                  e.preventDefault();
+                  onOpenBlog();
+                }
+              }}
+              className="hover:text-[#BD7469] transition-colors cursor-pointer text-[#736E67] font-medium"
+            >
+              Journal 📖
+            </a>
             <button
               onClick={() => scrollTo('step-10')}
               className="hover:text-[#BD7469] transition-colors cursor-pointer text-[#BD7469] font-bold"
@@ -105,8 +118,9 @@ export const Navbar: React.FC<NavbarProps> = () => {
               href="https://herhorizon.gumroad.com/l/rebuild-system/REBUILD50"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-1.5 bg-[#BD7469] hover:bg-[#A8584D] text-white text-xs font-semibold px-4 py-2 rounded-full shadow-sm transition-all transform hover:-translate-y-0.5"
+              className="inline-flex items-center space-x-1.5 bg-[#BD7469] hover:bg-[#A8584D] text-white text-xs font-semibold px-4 py-2 rounded-full shadow-sm transition-all transform hover:-translate-y-0.5 btn-shimmer-container animate-breathe-subtle cursor-pointer"
             >
+              <span className="btn-shimmer-sweep" />
               <span>Get System ($13 with 50% Off)</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
@@ -159,6 +173,19 @@ export const Navbar: React.FC<NavbarProps> = () => {
             Step 10: Special Offer ($13 Today)
           </button>
           <div className="pt-3 pb-1 flex flex-col gap-2.5">
+            <a
+              href="/blog"
+              onClick={(e) => {
+                setMobileMenuOpen(false);
+                if (onOpenBlog) {
+                  e.preventDefault();
+                  onOpenBlog();
+                }
+              }}
+              className="block w-full text-center bg-[#FAF6F2] border border-[#E8DCD5] text-[#2D2A26] py-3.5 rounded-full font-medium text-xs hover:bg-[#F3EBE3] transition-colors min-h-[46px] flex items-center justify-center"
+            >
+              📖 The Rebuild Journal (Healing Articles)
+            </a>
             <a
               href="/free-guide"
               className="block w-full text-center bg-[#FAF6F2] border border-[#E8DCD5] text-[#BD7469] py-3.5 rounded-full font-medium text-xs hover:bg-[#F3EBE3] active:bg-[#EBE2DA] transition-colors min-h-[46px] flex items-center justify-center"

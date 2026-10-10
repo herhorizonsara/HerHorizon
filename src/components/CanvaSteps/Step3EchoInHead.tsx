@@ -103,10 +103,11 @@ export const Step3EchoInHead: React.FC<Step3EchoInHeadProps> = ({ onScrollToChec
         <div className="text-center mt-8 sm:mt-10 px-1">
           <button
             onClick={onScrollToCheckout}
-            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#E2B072] hover:bg-[#D4A373] active:bg-[#C59B63] text-white font-semibold text-xs xs:text-sm sm:text-base tracking-wide px-8 sm:px-12 py-4 rounded-full transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.98] cursor-pointer uppercase font-sans min-h-[50px]"
+            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#E2B072] hover:bg-[#D4A373] active:bg-[#C59B63] text-white font-semibold text-xs xs:text-sm sm:text-base tracking-wide px-8 sm:px-12 py-4 rounded-full transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98] cursor-pointer uppercase font-sans min-h-[50px] btn-shimmer-container animate-breathe-subtle group"
           >
+            <span className="btn-shimmer-sweep" />
             <span>GET THE SYSTEM — $13 TODAY</span>
-            <ArrowRight className="w-4 h-4 shrink-0" />
+            <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" />
           </button>
           <p className="text-[11px] text-[#8C7A74] mt-2">
             Instant Digital Download • 30-Day Money-Back Peace Guarantee

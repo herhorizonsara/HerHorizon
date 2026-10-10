@@ -115,10 +115,11 @@ export const Step8Timeline: React.FC<Step8TimelineProps> = ({ onScrollToCheckout
         <div className="text-center mt-10 sm:mt-14 px-1">
           <button
             onClick={onScrollToCheckout}
-            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#E2B072] hover:bg-[#D4A373] active:bg-[#C59B63] text-white font-medium text-xs xs:text-sm sm:text-base tracking-wide px-8 sm:px-10 py-3.5 sm:py-4 rounded-full transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.98] cursor-pointer uppercase font-sans min-h-[48px]"
+            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#E2B072] hover:bg-[#D4A373] active:bg-[#C59B63] text-white font-medium text-xs xs:text-sm sm:text-base tracking-wide px-8 sm:px-10 py-3.5 sm:py-4 rounded-full transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98] cursor-pointer uppercase font-sans min-h-[48px] btn-shimmer-container animate-breathe-subtle group"
           >
+            <span className="btn-shimmer-sweep" />
             <span>GET THE SYSTEM NOW</span>
-            <ArrowRight className="w-4 h-4 shrink-0" />
+            <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
 

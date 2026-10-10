@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <!-- 1. HerHorizon Main Homepage & VSL Identity Roadmap -->
+  <url>
+    <loc>https://healing.herhorizon.store/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 2. Sunday Soul Notes: Blog Index & Editorial Archive -->
+  <url>
+    <loc>https://healing.herhorizon.store/journal</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 3. Editorial Article: Why Healthy Love Feels Boring -->
+  <url>
+    <loc>https://healing.herhorizon.store/journal/why-healthy-love-feels-boring</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 4. Editorial Article: The 90-Second Vagus Nerve Reset -->
+  <url>
+    <loc>https://healing.herhorizon.store/journal/90-second-vagus-nerve-reset</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 5. Editorial Article: Are You A People Pleaser or Just Fawning? -->
+  <url>
+    <loc>https://healing.herhorizon.store/journal/are-you-a-people-pleaser-or-just-fawning</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

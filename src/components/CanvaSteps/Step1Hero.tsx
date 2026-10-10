@@ -3,6 +3,7 @@ import { CanvaImagePlaceholder } from '../CanvaImagePlaceholder';
 import { ArrowRight, Sparkles, Feather, ShieldCheck, Mail, CheckCircle2, User, AlertCircle, ExternalLink } from 'lucide-react';
 import { addSubscriber } from '../../lib/storage';
 import { validateName, validateEmail } from '../../lib/validation';
+import { VSLPlayer } from '../VSLPlayer';
 
 interface Step1HeroProps {
   onScrollToCheckout: () => void;
@@ -122,51 +123,23 @@ export const Step1Hero: React.FC<Step1HeroProps> = ({
 
   return (
     <section id="step-1" className="relative pt-32 pb-14 sm:pt-36 sm:pb-20 md:pt-44 md:pb-28 bg-[#FFFDF9] text-[#2D2A26] overflow-hidden">
-      {/* Decorative Warm Ambient Glows */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-[#E2B072]/15 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute top-48 right-0 w-[400px] h-[400px] bg-[#BD7469]/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      {/* Decorative Warm Ambient Glows (Breathing Calm Aura) */}
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-[#E2B072]/15 rounded-full blur-3xl pointer-events-none -z-10 animate-ambient-glow" />
+      <div className="absolute top-48 right-0 w-[400px] h-[400px] bg-[#BD7469]/10 rounded-full blur-3xl pointer-events-none -z-10 animate-ambient-glow" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-8 text-center">
         
-        {/* Brand Logo from Canva (Emblem + HerHorizon typography) */}
-        <div className="mb-6 sm:mb-8 flex flex-col items-center justify-center">
-          <div className="w-24 h-24 sm:w-32 sm:h-32 mb-3.5 sm:mb-4 relative flex items-center justify-center">
-            {!heroLogoError && heroLogoCandidateIdx < heroLogoCandidates.length ? (
-              <img
-                src={heroLogoCandidates[heroLogoCandidateIdx]}
-                alt="HerHorizon Emblem"
-                onError={() => {
-                  if (heroLogoCandidateIdx + 1 < heroLogoCandidates.length) {
-                    setHeroLogoCandidateIdx((prev) => prev + 1);
-                  } else {
-                    setHeroLogoError(true);
-                  }
-                }}
-                className="w-full h-full object-contain filter drop-shadow-sm hover:scale-105 transition-transform duration-300"
-              />
-            ) : (
-              /* Stylized Sun Rays & Lotus Icon Fallback (Sized up) */
-              <svg viewBox="0 0 100 100" className="w-20 h-20 sm:w-24 sm:h-24 text-[#BD7469]">
-                {/* Sun rays */}
-                <path d="M50 12 L50 20 M32 18 L37 25 M68 18 L63 25 M20 32 L27 37 M80 32 L73 37" stroke="#E2B072" strokeWidth="3" strokeLinecap="round" />
-                {/* Head */}
-                <circle cx="50" cy="38" r="8" fill="#BD7469" />
-                {/* Body */}
-                <path d="M36 65 C36 48 64 48 64 65 Z" fill="#BD7469" />
-                {/* Heart in chest */}
-                <path d="M50 56 C48 52 43 52 43 56 C43 60 50 64 50 64 C50 64 57 60 57 56 C57 52 52 52 50 56 Z" fill="#FAF6F2" />
-                {/* Leaves */}
-                <path d="M30 62 C22 62 24 50 34 54 C34 60 30 62 30 62 Z" fill="#D4A373" />
-                <path d="M70 62 C78 62 76 50 66 54 C66 60 70 62 70 62 Z" fill="#D4A373" />
-              </svg>
-            )}
+        {/* High-Converting VSL Video (Replacing Top Logo) */}
+        <div className="mb-8 sm:mb-10 max-w-2xl mx-auto w-full px-1">
+          {/* Subtle contextual cue above video */}
+          <div className="flex items-center justify-center space-x-2 text-[11px] sm:text-xs font-medium text-[#8C7A74] tracking-wide mb-2.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#BD7469] animate-pulse" />
+            <span className="uppercase tracking-widest text-[#BD7469] font-semibold">Special Video Message</span>
+            <span className="text-[#D4C5BC]">•</span>
+            <span>Press play to watch (Sound On)</span>
           </div>
-          <span className="font-serif text-2xl sm:text-3xl tracking-[0.14em] font-medium text-[#BD7469] uppercase">
-            herhorizon
-          </span>
-          <span className="text-[10px] sm:text-[11px] tracking-[0.3em] text-[#D4A373] uppercase font-semibold mt-0.5">
-            RISE &amp; HEAL
-          </span>
+
+          <VSLPlayer videoId="cHaRNVZF5Jk" />
         </div>
 
         {/* Hero Headline & Sub-headline with High-Converting Copy */}
@@ -204,7 +177,7 @@ export const Step1Hero: React.FC<Step1HeroProps> = ({
 
         {/* Hero Mockup: 5-Tablet Digital Showcase (Zero Text Cut-off, Full Visual Clarity) */}
         <div className="my-6 sm:my-8 max-w-3xl sm:max-w-4xl mx-auto px-1">
-          <div className="relative rounded-2xl sm:rounded-3xl shadow-luxe-lg border border-[#E8DCD5] bg-gradient-to-b from-[#FAF8F5] via-[#F6EFE8] to-[#EFE4DC] p-3 sm:p-5">
+          <div className="relative rounded-2xl sm:rounded-3xl shadow-luxe-lg border border-[#E8DCD5] bg-gradient-to-b from-[#FAF8F5] via-[#F6EFE8] to-[#EFE4DC] p-3 sm:p-5 animate-somatic-float">
             
             {/* Top Showcase Banner */}
             <div className="flex flex-wrap items-center justify-between gap-2 px-2 sm:px-3 pb-3 border-b border-[#E8DCD5]/70 mb-3">
@@ -365,21 +338,22 @@ export const Step1Hero: React.FC<Step1HeroProps> = ({
           </div>
         </div>
 
-        {/* Canva Button & High-Converting CTAs */}
+        {/* Canva Button & High-Converting Somatic Breathing CTAs */}
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 mt-6 sm:mt-8 px-1 max-w-xl mx-auto">
           <a
             href="https://herhorizon.gumroad.com/l/rebuild-system/REBUILD50"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#BD7469] hover:bg-[#A8584D] active:bg-[#96473D] text-white font-semibold text-xs xs:text-sm sm:text-base tracking-wide px-8 sm:px-10 py-4 rounded-full transition-all duration-200 shadow-lg hover:shadow-xl active:scale-[0.98] cursor-pointer uppercase font-sans min-h-[50px]"
+            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-[#BD7469] hover:bg-[#A8584D] active:bg-[#96473D] text-white font-semibold text-xs xs:text-sm sm:text-base tracking-wide px-8 sm:px-10 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl active:scale-[0.98] cursor-pointer uppercase font-sans min-h-[50px] btn-shimmer-container animate-breathe group"
           >
+            <span className="btn-shimmer-sweep" />
             <span>GET THE SYSTEM — $13 TODAY (50% OFF)</span>
-            <ArrowRight className="w-4 h-4 shrink-0" />
+            <ArrowRight className="w-4 h-4 shrink-0 group-hover:translate-x-1 transition-transform" />
           </a>
 
           <button
             onClick={() => setShowLeadBox(!showLeadBox)}
-            className="w-full sm:w-auto inline-flex items-center justify-center space-x-1.5 text-xs font-semibold text-[#5C524F] hover:text-[#BD7469] active:bg-[#EFE5DC] bg-[#FAF6F2] hover:bg-[#F4ECE4] border border-[#E8DCD5] px-5 sm:px-6 py-4 rounded-full transition-all active:scale-[0.98] min-h-[50px] text-center"
+            className="w-full sm:w-auto inline-flex items-center justify-center space-x-1.5 text-xs font-semibold text-[#5C524F] hover:text-[#BD7469] active:bg-[#EFE5DC] bg-[#FAF6F2] hover:bg-[#F4ECE4] border border-[#E8DCD5] hover:border-[#BD7469]/50 px-5 sm:px-6 py-4 rounded-full transition-all duration-300 active:scale-[0.98] min-h-[50px] text-center animate-breathe-subtle cursor-pointer shadow-xs"
           >
             <span>Or Claim Free 72-Hour Reset Guide 🕊️</span>
           </button>
