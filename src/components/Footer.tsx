@@ -121,17 +121,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmin, onOpenBlog }) => {
                   50% Off Special Offer ($13)
                 </a>
               </li>
-              <li>
-                <button
-                  onClick={() => {
-                    if (onOpenAdmin) onOpenAdmin();
-                    else window.location.href = '/admin';
-                  }}
-                  className="block py-1 text-[#E3A88D] hover:underline font-medium text-left cursor-pointer"
-                >
-                  ⚙️ Admin &amp; Instructions Guide
-                </button>
-              </li>
             </ul>
           </div>
 
