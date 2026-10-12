@@ -83,6 +83,16 @@ export const Step5SelfTrustAndLoops: React.FC = () => {
                   </p>
                 </div>
               </div>
+
+              <div className="flex items-start space-x-3 bg-[#FAF6F2] p-3.5 sm:p-4 rounded-xl border border-[#EDE2DA] shadow-2xs">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#BD7469] shrink-0 mt-1.5" />
+                <div>
+                  <strong className="font-semibold text-[#2D2A26] block text-xs sm:text-sm">Audio Format Available</strong>
+                  <p className="text-xs sm:text-sm text-[#5C524F] mt-0.5">
+                    Audio Format: Listen on the go or in bed.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -127,6 +137,16 @@ export const Step5SelfTrustAndLoops: React.FC = () => {
                   <strong className="font-semibold text-[#2D2A26] block text-xs sm:text-sm">The 2 A.M. High-Contrast Anchor Card</strong>
                   <p className="text-xs sm:text-sm text-[#5C524F] mt-0.5">
                     A dark-mode printable/phone card designed for insomniac hours to ground your vagus nerve and pull you back into sleep in under 3 minutes.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-3 bg-[#FAF6F2] p-3.5 sm:p-4 rounded-xl border border-[#EDE2DA] shadow-2xs">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#BD7469] shrink-0 mt-1.5" />
+                <div>
+                  <strong className="font-semibold text-[#2D2A26] block text-xs sm:text-sm">Audio Format Available</strong>
+                  <p className="text-xs sm:text-sm text-[#5C524F] mt-0.5">
+                    Audio Format: Listen on the go or in bed.
                   </p>
                 </div>
               </div>

@@ -21,6 +21,8 @@ import { AdminLogin } from './components/Admin/AdminLogin';
 import { FreeGuidePage } from './components/FreeGuide/FreeGuidePage';
 import { BlogIndex } from './components/Blog/BlogIndex';
 import { BlogPostPage } from './components/Blog/BlogPostPage';
+import { AudioUpsellSection } from './components/AudioUpsellSection';
+import { FomoCountdownBanner } from './components/FomoCountdownBanner';
 import { resetHomeSeo } from './lib/seoHelper';
 import { isAdminAuthenticated } from './lib/storage';
 import { initTracking, trackGumroadClick } from './lib/tracking';
@@ -243,6 +245,9 @@ export default function App() {
 
         {/* Step 8: The 30-Day Homecoming Timeline */}
         <Step8Timeline onScrollToCheckout={scrollToCheckout} />
+
+        {/* VIP Upsell: Complete 5-Part Audio Edition Companion Suite */}
+        <AudioUpsellSection onScrollToCheckout={scrollToCheckout} />
 
         {/* Authentic Field Notes & Real Stories */}
         <Testimonials />

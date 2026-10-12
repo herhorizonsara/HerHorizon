@@ -83,6 +83,16 @@ export const Step6DetoxAndBoundaries: React.FC = () => {
                   </p>
                 </div>
               </div>
+
+              <div className="flex items-start space-x-3 bg-white/95 p-3.5 sm:p-4 rounded-xl border border-[#EDE2DA] shadow-2xs">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#BD7469] shrink-0 mt-1.5" />
+                <div>
+                  <strong className="font-semibold text-[#2D2A26] block text-xs sm:text-sm">Audio Format Available</strong>
+                  <p className="text-xs sm:text-sm text-[#5C524F] mt-0.5">
+                    Audio Format: Listen on the go or in bed.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -127,6 +137,16 @@ export const Step6DetoxAndBoundaries: React.FC = () => {
                   <strong className="font-semibold text-[#2D2A26] block text-xs sm:text-sm">Co-Parenting &amp; Family Inquiries Vault</strong>
                   <p className="text-xs sm:text-sm text-[#5C524F] mt-0.5">
                     Strictly functional, court-safe scripts for mutual friends, in-laws, shared assets, and child logistics. Clean, polite, impenetrable.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-3 bg-white/95 p-3.5 sm:p-4 rounded-xl border border-[#EDE2DA] shadow-2xs">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#BD7469] shrink-0 mt-1.5" />
+                <div>
+                  <strong className="font-semibold text-[#2D2A26] block text-xs sm:text-sm">Audio Format Available</strong>
+                  <p className="text-xs sm:text-sm text-[#5C524F] mt-0.5">
+                    Audio Format: Listen on the go or in bed.
                   </p>
                 </div>
               </div>

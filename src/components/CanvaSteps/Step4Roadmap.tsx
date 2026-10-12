@@ -84,6 +84,19 @@ export const Step4Roadmap: React.FC = () => {
                   </p>
                 </div>
               </div>
+
+              <div className="flex items-start space-x-3 bg-white/95 p-3.5 sm:p-4 rounded-xl border border-[#EDE2DA] shadow-2xs">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#BD7469] shrink-0 mt-1.5" />
+                <div>
+                  <strong className="font-semibold text-[#2D2A26] block text-xs sm:text-sm flex items-center space-x-1.5">
+                    <span>Audio Format Available</span>
+                    <span className="text-[10px] bg-[#BD7469]/10 text-[#BD7469] px-2 py-0.5 rounded-full font-normal">🎧 Listen on the go</span>
+                  </strong>
+                  <p className="text-xs sm:text-sm text-[#5C524F] mt-0.5">
+                    Audio Format: Listen on the go or in bed. Fully narrated for deep somatic absorption.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -84,6 +84,9 @@ export const Step10OfferAndGuarantee: React.FC = () => {
                 <span>Standard System Price:</span>
                 <span className="line-through font-serif text-[#BD7469]">$27.00</span>
               </div>
+              <p className="text-center italic text-xs text-[#8C7A74] py-1">
+                🎧 Note: The complete Audio Edition can be added to your order at checkout.
+              </p>
               <div className="font-serif italic text-xl xs:text-2xl sm:text-3xl font-bold text-[#D4A373] flex items-center justify-between pt-1 border-t border-dashed border-[#E8DCD5]">
                 <span>Your Price Today (Coupon Applied):</span>
                 <span className="text-2xl xs:text-3xl sm:text-4xl text-[#BD7469] font-sans font-bold">$13</span>

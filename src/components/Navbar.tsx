@@ -9,7 +9,7 @@ interface NavbarProps {
   isAdmin?: boolean;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenBlog }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenBlog, onOpenAdmin }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 

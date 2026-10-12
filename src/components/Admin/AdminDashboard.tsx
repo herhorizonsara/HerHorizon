@@ -13,6 +13,7 @@ import {
   BookOpen,
   BarChart3,
   ExternalLink,
+  HelpCircle,
 } from 'lucide-react';
 import { Subscriber } from '../../types';
 import {
@@ -26,6 +27,7 @@ import {
 import { AnalyticsOverview } from './AnalyticsOverview';
 import { CampaignLinkGenerator } from './CampaignLinkGenerator';
 import { AdminBlogManager } from './AdminBlogManager';
+import { AdminInstructionsTab } from './AdminInstructionsTab';
 import { EmailPreviewModal } from './EmailPreviewModal';
 
 interface AdminDashboardProps {
@@ -37,7 +39,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   onBackToSite,
   onViewLiveArticle,
 }) => {
-  const [activeTab, setActiveTab] = useState<'analytics' | 'links' | 'blog'>('analytics');
+  const [activeTab, setActiveTab] = useState<'analytics' | 'links' | 'blog' | 'instructions'>('analytics');
   const [subscribers, setSubscribers] = useState<Subscriber[]>([]);
   const [newName, setNewName] = useState('');
   const [newEmail, setNewEmail] = useState('');
@@ -227,6 +229,22 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                 Journal
               </span>
             </button>
+
+            {/* Tab 4: Instructions & Help Guide */}
+            <button
+              onClick={() => setActiveTab('instructions')}
+              className={`inline-flex items-center space-x-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer whitespace-nowrap ${
+                activeTab === 'instructions'
+                  ? 'bg-white text-[#2D2A26] shadow-2xs border border-[#DDD8CF]'
+                  : 'text-[#736E67] hover:text-[#2D2A26] hover:bg-white/60'
+              }`}
+            >
+              <HelpCircle className="w-3.5 h-3.5 text-[#E2B072]" />
+              <span>Instructions &amp; Help</span>
+              <span className="ml-1 text-[10px] bg-[#E2B072]/20 text-[#C59B63] px-2 py-0.5 rounded-full font-semibold">
+                Guide
+              </span>
+            </button>
           </div>
 
           <div className="hidden sm:flex items-center space-x-2 text-xs text-[#8C7A74]">
@@ -261,6 +279,10 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
             onViewLiveArticle={onViewLiveArticle || (() => {})}
             triggerToast={triggerToast}
           />
+        )}
+
+        {activeTab === 'instructions' && (
+          <AdminInstructionsTab />
         )}
       </main>
 

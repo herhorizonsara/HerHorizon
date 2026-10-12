@@ -131,6 +131,14 @@ export const Step1Hero: React.FC<Step1HeroProps> = ({
         
         {/* High-Converting VSL Video (Replacing Top Logo) */}
         <div className="mb-8 sm:mb-10 max-w-2xl mx-auto w-full px-1">
+          {/* Subtle Audio Format Indicator Badge */}
+          <div className="inline-flex items-center space-x-2 bg-[#FAF6F2] border border-[#E8DCD5] px-4 py-1.5 rounded-full text-xs font-medium text-[#2D2A26] shadow-2xs mb-3">
+            <svg className="w-3.5 h-3.5 text-[#BD7469]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+            </svg>
+            <span>Audio Edition Available at Checkout</span>
+          </div>
+
           {/* Subtle contextual cue above video */}
           <div className="flex items-center justify-center space-x-2 text-[11px] sm:text-xs font-medium text-[#8C7A74] tracking-wide mb-2.5">
             <span className="w-1.5 h-1.5 rounded-full bg-[#BD7469] animate-pulse" />

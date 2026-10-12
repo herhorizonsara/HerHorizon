@@ -387,7 +387,7 @@ export const MediumEditor: React.FC<MediumEditorProps> = ({
   const blockRefs = useRef<{ [key: string]: HTMLTextAreaElement | null }>({});
 
   // Modals
-  const [activeModal, setActiveModal] = useState<'none' | 'image' | 'preset' | 'link' | 'seo' | 'pasteAi'>('none');
+  const [activeModal, setActiveModal] = useState<'none' | 'image' | 'preset' | 'link' | 'seo' | 'pasteAi' | 'cover'>('none');
   const [insertTargetIndex, setInsertTargetIndex] = useState<number>(0);
   const [modalInput1, setModalInput1] = useState('');
   const [modalInput2, setModalInput2] = useState('');
@@ -1289,28 +1289,58 @@ export const MediumEditor: React.FC<MediumEditorProps> = ({
           <div className={`${isFullWidth ? 'max-w-5xl' : 'max-w-3xl'} mx-auto px-4 sm:px-8 py-10 sm:py-14 text-left`}>
             
             {/* TOP COVER BANNER (Compact & Removable) */}
-            {coverImage && showCoverPreview && (
+            {coverImage && showCoverPreview ? (
               <div className="relative mb-8 rounded-2xl overflow-hidden border border-[#EBEBEB] bg-[#FAF8F5] group">
                 <img
                   src={coverImage}
-                  alt="Story cover"
+                  alt={coverImageAlt || "Story cover"}
                   className="w-full h-40 sm:h-52 object-cover"
                 />
                 <div className="absolute top-3 right-3 flex items-center space-x-2">
                   <button
-                    onClick={() => setActiveModal('preset')}
-                    className="bg-white/95 text-[11px] font-semibold text-[#242424] px-3 py-1 rounded-full shadow-md hover:bg-white transition-colors cursor-pointer"
+                    onClick={() => setActiveModal('cover')}
+                    className="bg-white/95 text-[11px] font-semibold text-[#242424] px-3 py-1.5 rounded-full shadow-md hover:bg-white transition-colors cursor-pointer"
                   >
                     Change Cover
                   </button>
                   <button
+                    onClick={() => {
+                      setCoverImage('');
+                      showToast('Removed cover image (text-only article)');
+                    }}
+                    className="bg-red-600/90 text-white text-[11px] font-semibold px-3 py-1.5 rounded-full shadow-md hover:bg-red-700 transition-colors cursor-pointer"
+                    title="Remove cover image"
+                  >
+                    Remove Cover
+                  </button>
+                  <button
                     onClick={() => setShowCoverPreview(false)}
-                    className="bg-black/60 text-white p-1 rounded-full hover:bg-black transition-colors cursor-pointer"
+                    className="bg-black/60 text-white p-1.5 rounded-full hover:bg-black transition-colors cursor-pointer"
                     title="Hide banner preview"
                   >
                     <X className="w-3.5 h-3.5" />
                   </button>
                 </div>
+              </div>
+            ) : (
+              <div className="mb-6 flex items-center space-x-3">
+                <button
+                  type="button"
+                  onClick={() => setActiveModal('cover')}
+                  className="inline-flex items-center space-x-1.5 text-xs font-semibold text-[#757575] hover:text-[#242424] bg-[#F5F5F5] hover:bg-[#EBEBEB] px-3.5 py-2 rounded-xl transition-colors cursor-pointer border border-[#E2E2E2]"
+                >
+                  <ImageIcon className="w-4 h-4 text-[#1A8917]" />
+                  <span>+ Add Cover Image Banner</span>
+                </button>
+                {coverImage && !showCoverPreview && (
+                  <button
+                    type="button"
+                    onClick={() => setShowCoverPreview(true)}
+                    className="text-xs text-[#1A8917] hover:underline font-medium"
+                  >
+                    Show Cover Preview
+                  </button>
+                )}
               </div>
             )}
 
@@ -2310,6 +2340,102 @@ export const MediumEditor: React.FC<MediumEditorProps> = ({
                   Insert Image Here
                 </button>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* MODAL: COVER IMAGE MANAGER (Direct Link URL, Presets, Remove) */}
+      {activeModal === 'cover' && (
+        <div className="fixed inset-0 z-60 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full border border-[#E6E6E6] shadow-2xl text-left animate-in zoom-in-95 duration-150 max-h-[90vh] overflow-y-auto space-y-5">
+            <div className="flex items-center justify-between pb-3 border-b border-[#F0F0F0]">
+              <div className="flex items-center space-x-2">
+                <ImageIcon className="w-5 h-5 text-[#1A8917]" />
+                <h3 className="font-serif italic text-lg font-bold text-[#242424]">
+                  Manage Article Cover Image
+                </h3>
+              </div>
+              <button onClick={() => setActiveModal('none')} className="text-[#757575] hover:text-[#242424]">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold text-[#757575] mb-1">
+                Direct Image URL (Link)
+              </label>
+              <div className="flex space-x-2">
+                <input
+                  type="text"
+                  value={modalInput1}
+                  onChange={(e) => setModalInput1(e.target.value)}
+                  placeholder="https://... or /cover-roadmap.webp"
+                  className="flex-1 text-xs p-3 border border-[#D9D9D9] rounded-xl focus:outline-none focus:ring-1 focus:ring-[#1A8917]"
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (modalInput1.trim()) {
+                      setCoverImage(modalInput1.trim());
+                      setActiveModal('none');
+                      setModalInput1('');
+                      showToast('Cover image updated via link!');
+                    }
+                  }}
+                  className="px-4 py-2 text-xs bg-[#1A8917] hover:bg-[#156F12] text-white font-semibold rounded-xl shrink-0 cursor-pointer"
+                >
+                  Apply Link
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <span className="block text-xs font-semibold text-[#757575] mb-2 uppercase tracking-wider">
+                Or Choose from HerHorizon Presets:
+              </span>
+              <div className="grid grid-cols-2 gap-2 max-h-48 overflow-y-auto pr-1">
+                {PRESET_GRAPHICS.map((preset) => (
+                  <div
+                    key={preset.path}
+                    onClick={() => {
+                      setCoverImage(preset.path);
+                      setActiveModal('none');
+                      showToast('Cover image set to preset!');
+                    }}
+                    className="rounded-xl border border-[#E6E6E6] hover:border-[#1A8917] p-1.5 text-left cursor-pointer transition-all bg-white hover:bg-[#FAF9F6]"
+                  >
+                    <div className="aspect-[16/9] rounded-lg overflow-hidden bg-[#FAF8F5] mb-1">
+                      <img src={preset.path} alt={preset.name} className="w-full h-full object-cover" />
+                    </div>
+                    <span className="text-[10px] font-medium text-[#242424] line-clamp-1 block">
+                      {preset.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between pt-3 border-t border-[#F0F0F0]">
+              <button
+                type="button"
+                onClick={() => {
+                  setCoverImage('');
+                  setActiveModal('none');
+                  showToast('Removed cover image (text-only article)');
+                }}
+                className="px-4 py-2 text-xs bg-red-50 hover:bg-red-100 text-red-700 font-semibold rounded-xl transition-colors cursor-pointer"
+              >
+                Remove Cover (Text Only)
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setActiveModal('none')}
+                className="px-4 py-2 text-xs bg-[#F2F2F2] hover:bg-[#EBEBEB] text-[#242424] rounded-xl font-medium cursor-pointer"
+              >
+                Done / Cancel
+              </button>
             </div>
           </div>
         </div>
