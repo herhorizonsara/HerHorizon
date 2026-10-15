@@ -22,6 +22,7 @@ import {
   Sparkles,
   Calendar,
   Compass,
+  RotateCcw,
 } from 'lucide-react';
 import {
   ResponsiveContainer,
@@ -253,6 +254,21 @@ export const AnalyticsOverview: React.FC<AnalyticsOverviewProps> = ({
     <div className="space-y-8 animate-in fade-in duration-300">
       
       {/* 1. TOP KPI CARDS (Luxe-Zen Styled) */}
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="font-serif italic text-2xl text-[#2D2A26] font-normal">Analytics Overview</h2>
+        <button
+          onClick={() => {
+            if (window.confirm('Are you sure you want to reset all visitor and click metrics to zero? This action cannot be undone.')) {
+              resetAggregateMetrics();
+              window.location.reload(); // Quickest way to refresh all stats
+            }
+          }}
+          className="inline-flex items-center space-x-1.5 text-xs text-[#BD7469] hover:bg-[#FAF9F6] px-3 py-1.5 rounded-lg transition-colors cursor-pointer border border-[#EAE5DC]"
+        >
+          <RotateCcw className="w-3.5 h-3.5" />
+          <span>Reset Counters</span>
+        </button>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         
         {/* Total Visitors */}

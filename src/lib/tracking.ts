@@ -264,3 +264,13 @@ export function getAggregateMetrics() {
     return { totalVisitors: 0, totalGumroadClicks: 0 };
   }
 }
+
+/**
+ * Admin utility to reset analytics counters to zero.
+ */
+export function resetAggregateMetrics(): void {
+  if (typeof window === 'undefined') return;
+  localStorage.setItem(LOCAL_VISITORS_KEY, '0');
+  localStorage.setItem(LOCAL_GUMROAD_CLICKS_KEY, '0');
+  window.dispatchEvent(new Event('hh_analytics_updated'));
+}
